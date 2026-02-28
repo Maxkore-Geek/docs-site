@@ -7,7 +7,7 @@ export default function Home() {
       title="Maxkore的文档站"
       description="代码之外，思考之上">
       <header style={{ 
-        backgroundColor: '#6366f1',
+        backgroundColor: '#660874',
         padding: '4rem 2rem',
         textAlign: 'center',
         color: 'white'
