@@ -117,47 +117,47 @@ const config: Config = {
     // 页脚
     footer: {
       style: 'dark',
-      links: [
+      footer: {
+  style: 'dark',
+  links: [
+    {
+      title: '文档',
+      items: [
         {
-          title: '文档',
-          items: [
-            {
-              label: '入门指南',
-              to: '/docs/intro',
-            },
-            {
-              label: '教程',
-              to: '/docs/category/tutorial',
-            },
-          ],
-        },
-        {
-          title: '社区',
-          items: [
-            {
-              label: 'GitHub',
-              href: 'https://github.com/Maxkore-Geek/docs-site',
-            },
-            {
-              label: 'Issues',
-              href: 'https://github.com/Maxkore-Geek/docs-site/issues',
-            },
-          ],
-        },
-        {
-          title: '更多',
-          items: [
-            {
-              label: '博客',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/Maxkore-Geek/docs-site',
-            },
-          ],
+          label: '入门指南',
+          to: '/docs/intro',
         },
       ],
+    },
+    {
+      title: '社区',
+      items: [
+        {
+          label: 'GitHub',
+          href: 'https://github.com/Maxkore-Geek/docs-site',
+        },
+        {
+          label: 'Issues',
+          href: 'https://github.com/Maxkore-Geek/docs-site/issues',
+        },
+      ],
+    },
+    {
+      title: '更多',
+      items: [
+        {
+          label: '博客',
+          to: '/blog',
+        },
+        {
+          label: 'GitHub',
+          href: 'https://github.com/Maxkore-Geek/docs-site',
+        },
+      ],
+    },
+  ],
+  copyright: `Copyright © ${new Date().getFullYear()} Maxkore. Built with Docusaurus.`,
+},
       copyright: `Copyright © ${new Date().getFullYear()} Maxkore. Built with Docusaurus.`,
     },
     
