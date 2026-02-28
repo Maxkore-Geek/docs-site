@@ -75,26 +75,25 @@ const config: Config = {
     // 社交卡片图片
     image: 'img/docusaurus-social-card.jpg',
     
-    // 颜色模式配置 - ✅ 保留主题切换
+    // 颜色模式配置 - 保留主题切换
     colorMode: {
       defaultMode: 'light',
-      disableSwitch: false,      // false = 允许切换主题
+      disableSwitch: false,
       respectPrefersColorScheme: true,
     },
     
-    // 导航栏 - ✅ 只保留标题+logo，点击标题回到首页
+    // 导航栏 - ✅ 标题点击回首页，logo 只是装饰
     navbar: {
-      title: 'Maxkore的文档站',
+      title: 'Maxkore的文档站',  // ← 点击回到首页
       logo: {
         alt: 'GitHub Logo',
         src: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
         srcDark: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
-        href: 'https://github.com/Maxkore-Geek',  // logo点击跳转GitHub
-        target: '_blank',                          // 新标签页打开
+        // href 已删除，点击 logo 不跳转
         width: 32,
         height: 32,
       },
-      items: [],  // ✅ 空数组 = 不显示任何导航项（教程、博客、中文、GitHub都消失）
+      items: [],  // 空数组，隐藏所有导航项
     },
     
     // 页脚
@@ -154,13 +153,6 @@ const config: Config = {
         autoCollapseCategories: true,
       },
     },
-    
-    // Algolia 搜索（注释掉，需要时启用）
-    // algolia: {
-    //   appId: 'YOUR_APP_ID',
-    //   apiKey: 'YOUR_API_KEY',
-    //   indexName: 'YOUR_INDEX_NAME',
-    // },
   } satisfies Preset.ThemeConfig,
 
   // 插件配置
