@@ -15,12 +15,12 @@ const config: Config = {
     v4: true,
   },
 
-  // 生产环境配置 - ✅ 已修改为你的域名
+  // 生产环境配置
   url: 'https://docs-site.bbroot.com',
   baseUrl: '/',
 
-  // GitHub 部署配置 - ✅ 已修改为你的信息
-  organizationName: 'Maxkore',
+  // GitHub 部署配置
+  organizationName: 'Maxkore-Geek',
   projectName: 'docs-site',
 
   // 链接错误处理
@@ -84,35 +84,16 @@ const config: Config = {
     
     // 导航栏
     navbar: {
-  title: 'Maxkore的文档站',
- logo: {
-  alt: 'GitHub Logo',
-  src: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',      // 浅色模式
-  srcDark: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',   // 深色模式（GitHub图标本身是深色的，所以可以用同一个）
-  href: 'https://github.com/Maxkore-Geek',
-  target: '_blank',
-  width: 32,  // 控制图标大小
-  height: 32,
-},
-  items: [
-    {
-      type: 'docSidebar',
-      sidebarId: 'tutorialSidebar',
-      position: 'left',
-      label: '教程',
-    },
-    {to: '/blog', label: '博客', position: 'left'},
-    {
-      type: 'localeDropdown',
-      position: 'right',
-    },
-    {
-      href: 'https://github.com/Maxkore-Geek/docs-site',
-      label: 'GitHub',
-      position: 'right',
-    },
-  ],
-},
+      title: 'Maxkore的文档站',
+      logo: {
+        alt: 'GitHub Logo',
+        src: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
+        srcDark: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
+        href: 'https://github.com/Maxkore-Geek',
+        target: '_blank',
+        width: 32,
+        height: 32,
+      },
       items: [
         {
           type: 'docSidebar',
@@ -201,20 +182,20 @@ const config: Config = {
     //   apiKey: 'YOUR_API_KEY',
     //   indexName: 'YOUR_INDEX_NAME',
     // },
-  } satisfies Preset.ThemeConfig,
-  
+  } satisfies Preset.ThemeConfig,  // ← 注意这里有个逗号！
+
   // 插件配置
   plugins: [],
-  
+
   // 静态目录
   staticDirectories: ['static'],
-  
+
   // 自定义脚本
   scripts: [],
-  
+
   // 自定义样式
   stylesheets: [],
-  
+
   // 网站头部标签
   headTags: [],
 };
