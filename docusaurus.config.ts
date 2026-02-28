@@ -75,46 +75,29 @@ const config: Config = {
     // 社交卡片图片
     image: 'img/docusaurus-social-card.jpg',
     
-    // 颜色模式配置
+    // 颜色模式配置 - ✅ 保留主题切换
     colorMode: {
       defaultMode: 'light',
-      disableSwitch: false,
+      disableSwitch: false,      // false = 允许切换主题
       respectPrefersColorScheme: true,
     },
     
-    // 导航栏
+    // 导航栏 - ✅ 只保留标题+logo，点击标题回到首页
     navbar: {
       title: 'Maxkore的文档站',
       logo: {
         alt: 'GitHub Logo',
         src: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
         srcDark: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
-        href: 'https://github.com/Maxkore-Geek',
-        target: '_blank',
+        href: 'https://github.com/Maxkore-Geek',  // logo点击跳转GitHub
+        target: '_blank',                          // 新标签页打开
         width: 32,
         height: 32,
       },
-      items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: '教程',
-        },
-        {to: '/blog', label: '博客', position: 'left'},
-        {
-          type: 'localeDropdown',
-          position: 'right',
-        },
-        {
-          href: 'https://github.com/Maxkore-Geek/docs-site',
-          label: 'GitHub',
-          position: 'right',
-        },
-      ],
+      items: [],  // ✅ 空数组 = 不显示任何导航项（教程、博客、中文、GitHub都消失）
     },
     
-    // 页脚 - ✅ 修复了嵌套错误
+    // 页脚
     footer: {
       style: 'dark',
       links: [
