@@ -1,43 +1,40 @@
-import type {ReactNode} from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import React from 'react';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Heading from '@theme/Heading';
 
-import styles from './index.module.css';
-
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
-
-export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
+export default function Home() {
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
+      title="Maxkore的文档站"
+      description="代码之外，思考之上">
+      <header style={{ 
+        backgroundColor: '#6366f1',
+        padding: '4rem 2rem',
+        textAlign: 'center',
+        color: 'white'
+      }}>
+        <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>
+          Maxkore的文档站
+        </h1>
+        <p style={{ fontSize: '1.5rem', opacity: 0.9 }}>
+          代码之外，思考之上
+        </p>
+      </header>
+
+      <main style={{ padding: '3rem 2rem', maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+          <div style={{ padding: '1.5rem', border: '1px solid #eaeaea', borderRadius: '8px' }}>
+            <h3>📝 技术博客</h3>
+            <p>分享编程心得与技术思考</p>
+          </div>
+          <div style={{ padding: '1.5rem', border: '1px solid #eaeaea', borderRadius: '8px' }}>
+            <h3>📚 文档教程</h3>
+            <p>系统性的学习指南</p>
+          </div>
+          <div style={{ padding: '1.5rem', border: '1px solid #eaeaea', borderRadius: '8px' }}>
+            <h3>💡 思考碎片</h3>
+            <p>代码之外的灵感记录</p>
+          </div>
+        </div>
       </main>
     </Layout>
   );
