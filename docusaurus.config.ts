@@ -5,46 +5,52 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  // 网站基本信息
+  title: 'Maxkore的文档站',
+  tagline: '代码之外,思考之上.',
   favicon: 'img/favicon.ico',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
+  // Future flags
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  // 生产环境配置 - ✅ 已修改为你的域名
+  url: 'https://docs-site.bbroot.com',
   baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  // GitHub 部署配置 - ✅ 已修改为你的信息
+  organizationName: 'Maxkore',
+  projectName: 'docs-site',
 
+  // 链接错误处理
   onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  // 国际化
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans', 'en'],
+    localeConfigs: {
+      'zh-Hans': {
+        label: '中文',
+      },
+      en: {
+        label: 'English',
+      },
+    },
   },
 
+  // 预设配置
   presets: [
     [
       'classic',
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/Maxkore-Geek/docs-site/tree/main/',
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
         },
         blog: {
           showReadingTime: true,
@@ -52,11 +58,7 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
+          editUrl: 'https://github.com/Maxkore-Geek/docs-site/tree/main/',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -68,83 +70,153 @@ const config: Config = {
     ],
   ],
 
+  // 主题配置
   themeConfig: {
-    // Replace with your project's social card
+    // 社交卡片图片
     image: 'img/docusaurus-social-card.jpg',
+    
+    // 颜色模式配置
     colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
       respectPrefersColorScheme: true,
     },
+    
+    // 导航栏
     navbar: {
-      title: 'My Site',
-      logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
-      },
+  title: 'Maxkore的文档站',
+ logo: {
+  alt: 'GitHub Logo',
+  src: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',      // 浅色模式
+  srcDark: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',   // 深色模式（GitHub图标本身是深色的，所以可以用同一个）
+  href: 'https://github.com/Maxkore-Geek',
+  target: '_blank',
+  width: 32,  // 控制图标大小
+  height: 32,
+},
+  items: [
+    {
+      type: 'docSidebar',
+      sidebarId: 'tutorialSidebar',
+      position: 'left',
+      label: '教程',
+    },
+    {to: '/blog', label: '博客', position: 'left'},
+    {
+      type: 'localeDropdown',
+      position: 'right',
+    },
+    {
+      href: 'https://github.com/Maxkore-Geek/docs-site',
+      label: 'GitHub',
+      position: 'right',
+    },
+  ],
+},
       items: [
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: '教程',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/blog', label: '博客', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          type: 'localeDropdown',
+          position: 'right',
+        },
+        {
+          href: 'https://github.com/Maxkore-Geek/docs-site',
           label: 'GitHub',
           position: 'right',
         },
       ],
     },
+    
+    // 页脚
     footer: {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: '文档',
           items: [
             {
-              label: 'Tutorial',
+              label: '入门指南',
               to: '/docs/intro',
             },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: '教程',
+              to: '/docs/category/tutorial',
             },
           ],
         },
         {
-          title: 'More',
+          title: '社区',
           items: [
             {
-              label: 'Blog',
+              label: 'GitHub',
+              href: 'https://github.com/Maxkore-Geek/docs-site',
+            },
+            {
+              label: 'Issues',
+              href: 'https://github.com/Maxkore-Geek/docs-site/issues',
+            },
+          ],
+        },
+        {
+          title: '更多',
+          items: [
+            {
+              label: '博客',
               to: '/blog',
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/Maxkore-Geek/docs-site',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Maxkore. Built with Docusaurus.`,
     },
+    
+    // 代码高亮主题
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['bash', 'json', 'typescript', 'javascript'],
     },
+    
+    // 文档侧边栏自动折叠
+    docs: {
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: true,
+      },
+    },
+    
+    // 实时聊天（可选，去掉不需要的）
+    // algolia: {
+    //   appId: 'YOUR_APP_ID',
+    //   apiKey: 'YOUR_API_KEY',
+    //   indexName: 'YOUR_INDEX_NAME',
+    // },
   } satisfies Preset.ThemeConfig,
+  
+  // 插件配置
+  plugins: [],
+  
+  // 静态目录
+  staticDirectories: ['static'],
+  
+  // 自定义脚本
+  scripts: [],
+  
+  // 自定义样式
+  stylesheets: [],
+  
+  // 网站头部标签
+  headTags: [],
 };
 
 export default config;
