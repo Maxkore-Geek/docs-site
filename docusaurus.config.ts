@@ -136,7 +136,6 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Maxkore. Built with Docusaurus.`,
     },
     
     // 代码高亮主题
