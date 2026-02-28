@@ -8,15 +8,46 @@
   --ifm-color-primary-lightest: #840b98;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(102, 8, 116, 0.1);
+  
+  /* 首页卡片自定义变量 - 浅色模式 */
+  --home-card-bg: #ffffff;
+  --home-card-text: #333333;
+  --home-card-shadow: rgba(102, 8, 116, 0.2);
+  --home-card-shadow-hover: rgba(102, 8, 116, 0.3);
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #9b3cad;
-  --ifm-color-primary-dark: #8b359b;
-  --ifm-color-primary-darker: #7b2f8a;
-  --ifm-color-primary-darkest: #6b2878;
-  --ifm-color-primary-light: #ab43bf;
-  --ifm-color-primary-lighter: #b44bc8;
-  --ifm-color-primary-lightest: #bd5ad0;
-  --docusaurus-highlighted-code-line-bg: rgba(102, 8, 116, 0.3);
+  --ifm-color-primary: #b84acf;
+  --ifm-color-primary-dark: #a832bd;
+  --ifm-color-primary-darker: #982ba9;
+  --ifm-color-primary-darkest: #872595;
+  --ifm-color-primary-light: #c05ed5;
+  --ifm-color-primary-lighter: #c872db;
+  --ifm-color-primary-lightest: #d086e1;
+  --docusaurus-highlighted-code-line-bg: rgba(184, 74, 207, 0.3);
+  
+  /* 首页卡片自定义变量 - 深色模式 */
+  --home-card-bg: #1e1e2e;
+  --home-card-text: #e0e0e0;
+  --home-card-shadow: rgba(184, 74, 207, 0.2);
+  --home-card-shadow-hover: rgba(184, 74, 207, 0.4);
+}
+
+/* 卡片样式微调 */
+.home-card {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* 深色模式下的卡片边框效果 */
+[data-theme='dark'] .home-card {
+  border-color: var(--ifm-color-primary) !important;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .home-card {
+    width: 100% !important;
+    max-width: 350px;
+  }
 }
