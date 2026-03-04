@@ -9,9 +9,9 @@ hide_table_of_contents: true
 import React from 'react';
 import DocCardList from '@theme/DocCardList';
 import {useDocsSidebar} from '@docusaurus/theme-common';
-import {useAllDocsData} from '@docusaurus/plugin-content-docs/client';
+import {usePluginData} from '@docusaurus/useGlobalData';
 
-# ⚡ MAXKORE · 知识矩阵
+# ⚡ Maxkore · 知识矩阵
 
 <div className="hero-section">
   <p className="hero-tagline">代码之外 | 思考之上</p>
@@ -80,55 +80,73 @@ import {useAllDocsData} from '@docusaurus/plugin-content-docs/client';
 {/* ========== 自定义组件 ========== */}
 
 function StatsDisplay() {
-  const docsData = useAllDocsData();
-  const docs = docsData.default?.versions[0]?.docs || [];
-  
-  const docCount = docs.length;
-  
-  const categories = new Set(
-    docs
-      .map(doc => doc.path.split('/').slice(0, -1).join('/'))
-      .filter(path => path.includes('/category/'))
-  );
-  const categoryCount = categories.size;
-  
-  const lastUpdate = docs
-    .map(doc => doc.lastUpdatedAt)
-    .filter(Boolean)
-    .sort((a, b) => b - a)[0];
-  
-  const lastUpdateDate = lastUpdate 
-    ? new Date(lastUpdate * 1000).toISOString().split('T')[0]
-    : '2026-03-04';
+  try {
+    const docsData = usePluginData('docusaurus-plugin-content-docs', 'default');
+    const docs = docsData?.versions[0]?.docs || [];
+    
+    const docCount = docs.length;
+    
+    const categories = new Set(
+      docs
+        .map(doc => doc.path.split('/').slice(0, -1).join('/'))
+        .filter(path => path.includes('/category/'))
+    );
+    const categoryCount = categories.size;
+    
+    const lastUpdate = docs
+      .map(doc => doc.lastUpdatedAt)
+      .filter(Boolean)
+      .sort((a, b) => b - a)[0];
+    
+    const lastUpdateDate = lastUpdate 
+      ? new Date(lastUpdate * 1000).toISOString().split('T')[0]
+      : '2026-03-04';
 
-  return (
-    <React.Fragment>
-      <span>📄 累计文档 <strong>{docCount}</strong> 篇</span>
-      <span>📁 分类 <strong>{categoryCount}</strong> 个</span>
-      <span>🕒 最后更新 <strong>{lastUpdateDate}</strong></span>
-    </React.Fragment>
-  );
+    return (
+      <>
+        <span>📄 累计文档 <strong>{docCount}</strong> 篇</span>
+        <span>📁 分类 <strong>{categoryCount}</strong> 个</span>
+        <span>🕒 最后更新 <strong>{lastUpdateDate}</strong></span>
+      </>
+    );
+  } catch (error) {
+    return (
+      <>
+        <span>📄 累计文档 <strong>0</strong> 篇</span>
+        <span>📁 分类 <strong>0</strong> 个</span>
+        <span>🕒 最后更新 <strong>2026-03-04</strong></span>
+      </>
+    );
+  }
 }
 
 function RecentDocs() {
-  const docsData = useAllDocsData();
-  const docs = docsData.default?.versions[0]?.docs || [];
-  
-  const recentDocs = docs
-    .filter(doc => doc.lastUpdatedAt)
-    .sort((a, b) => b.lastUpdatedAt - a.lastUpdatedAt)
-    .slice(0, 5);
+  try {
+    const docsData = usePluginData('docusaurus-plugin-content-docs', 'default');
+    const docs = docsData?.versions[0]?.docs || [];
+    
+    const recentDocs = docs
+      .filter(doc => doc.lastUpdatedAt)
+      .sort((a, b) => b.lastUpdatedAt - a.lastUpdatedAt)
+      .slice(0, 5);
 
-  return (
-    <div className="recent-list">
-      {recentDocs.map(doc => (
-        <a href={doc.path} key={doc.id} className="recent-item">
-          <span className="recent-title">{doc.title}</span>
-          <span className="recent-date">
-            {new Date(doc.lastUpdatedAt * 1000).toISOString().split('T')[0]}
-          </span>
-        </a>
-      ))}
-    </div>
-  );
+    if (recentDocs.length === 0) {
+      return <div>暂无文档</div>;
+    }
+
+    return (
+      <div className="recent-list">
+        {recentDocs.map(doc => (
+          <a href={doc.path} key={doc.id} className="recent-item">
+            <span className="recent-title">{doc.title}</span>
+            <span className="recent-date">
+              {new Date(doc.lastUpdatedAt * 1000).toISOString().split('T')[0]}
+            </span>
+          </a>
+        ))}
+      </div>
+    );
+  } catch (error) {
+    return <div>暂无文档</div>;
+  }
 }
