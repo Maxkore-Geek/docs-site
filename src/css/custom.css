@@ -9,11 +9,19 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(102, 8, 116, 0.1);
   
-  /* 首页卡片自定义变量 - 浅色模式 */
+  /* 卡片样式变量 */
   --home-card-bg: #ffffff;
   --home-card-text: #333333;
   --home-card-shadow: rgba(102, 8, 116, 0.2);
   --home-card-shadow-hover: rgba(102, 8, 116, 0.3);
+  
+  /* 洛谷风格圆角 */
+  --ifm-global-radius: 12px;
+  --ifm-card-border-radius: 12px;
+  
+  /* 字体优化 */
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --ifm-heading-font-weight: 600;
 }
 
 [data-theme='dark'] {
@@ -26,152 +34,290 @@
   --ifm-color-primary-lightest: #d086e1;
   --docusaurus-highlighted-code-line-bg: rgba(184, 74, 207, 0.3);
   
-  /* 首页卡片自定义变量 - 深色模式 */
   --home-card-bg: #1e1e2e;
   --home-card-text: #e0e0e0;
   --home-card-shadow: rgba(184, 74, 207, 0.2);
   --home-card-shadow-hover: rgba(184, 74, 207, 0.4);
 }
 
-/* ========== 首页英雄区域 ========== */
-.hero-section {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: linear-gradient(135deg, var(--ifm-color-primary-lightest) 0%, var(--ifm-color-primary) 100%);
-  border-radius: 16px;
-  margin-bottom: 2rem;
-  color: white;
+/* ========== 导航栏升级 ========== */
+.navbar {
+  box-shadow: 0 2px 8px var(--ifm-color-primary-lightest);
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
-.hero-tagline {
-  font-size: 1.4rem;
-  margin-bottom: 1.5rem;
-  opacity: 0.95;
-  font-family: 'JetBrains Mono', monospace;
-  letter-spacing: 1px;
+[data-theme='dark'] .navbar {
+  background-color: rgba(30, 30, 46, 0.9);
 }
 
-.hero-stats {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  font-size: 1rem;
+.navbar__title {
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.hero-stats span {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 0.5rem 1rem;
-  border-radius: 30px;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* ========== 快速导航卡片 ========== */
-.quick-nav {
+/* ========== 文档卡片网格 ========== */
+.doc-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   margin: 2rem 0;
 }
 
-.nav-card {
-  display: flex;
-  align-items: center;
-  padding: 1.5rem;
+.doc-card {
   background: var(--home-card-bg);
-  border: 2px solid var(--ifm-color-primary-lightest);
-  border-radius: 12px;
-  text-decoration: none !important;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  padding: 1.5rem;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.nav-card:hover {
+.doc-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-light) 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.doc-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px var(--home-card-shadow-hover);
+  box-shadow: 0 12px 30px var(--home-card-shadow-hover);
   border-color: var(--ifm-color-primary);
 }
 
-.nav-icon {
-  font-size: 2.5rem;
-  margin-right: 1rem;
+.doc-card:hover::before {
+  opacity: 1;
 }
 
-.nav-content h3 {
-  margin: 0 0 0.3rem 0;
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.doc-card h3 {
+  margin: 0 0 0.5rem 0;
   color: var(--ifm-color-primary);
   font-size: 1.3rem;
+  font-weight: 600;
 }
 
-.nav-content p {
-  margin: 0;
+.doc-card p {
+  margin: 0 0 1rem 0;
   color: var(--home-card-text);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
   opacity: 0.8;
 }
 
-/* ========== 最近文档列表 ========== */
-.recent-docs {
-  margin: 2rem 0;
-  background: var(--home-card-bg);
-  border-radius: 12px;
-  padding: 1.5rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
+.card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
 }
 
-.recent-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.recent-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.8rem 1rem;
-  background: var(--ifm-color-emphasis-100);
-  border-radius: 8px;
-  text-decoration: none !important;
+.card-links a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.2rem 0;
+  border-bottom: 2px solid transparent;
   transition: all 0.2s;
 }
 
-.recent-item:hover {
-  background: var(--ifm-color-primary-lightest);
-  transform: translateX(4px);
+.card-links a:hover {
+  border-bottom-color: var(--ifm-color-primary);
 }
 
-.recent-title {
-  color: var(--ifm-font-color-base);
+.card-footer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.card-footer a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* ========== 快速入口 ========== */
+.quick-entry {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: var(--home-card-bg);
+  border-radius: 50px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.entry-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  background: transparent;
+  border-radius: 30px;
+  text-decoration: none !important;
+  color: var(--home-card-text);
+  transition: all 0.2s;
+}
+
+.entry-item:hover {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+.entry-icon {
+  font-size: 1.2rem;
+}
+
+.entry-text {
   font-weight: 500;
 }
 
-.recent-date {
-  color: var(--ifm-color-primary);
-  font-size: 0.9rem;
-  font-family: monospace;
-}
-
-/* ========== 所有文档卡片 ========== */
-.all-docs {
-  margin: 2rem 0;
-}
-
-.all-docs .card {
+/* ========== 最新更新区域 ========== */
+.update-section {
   background: var(--home-card-bg);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 10px;
+  border-radius: 16px;
   padding: 1.5rem;
+  margin: 2rem 0;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.update-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.update-item:last-child {
+  border-bottom: none;
+}
+
+.update-date {
+  font-family: monospace;
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  min-width: 100px;
+}
+
+.update-content {
+  color: var(--home-card-text);
+}
+
+/* ========== 英雄区域 ========== */
+.hero-section {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, var(--ifm-color-primary-lightest) 0%, var(--ifm-color-primary) 100%);
+  border-radius: 24px;
+  margin: 2rem 0;
+  color: white;
+}
+
+.hero-tagline {
+  font-size: 2rem;
+  font-weight: 700;
   margin-bottom: 1rem;
-  transition: all 0.2s;
 }
 
-.all-docs .card:hover {
+.hero-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.hero-button {
+  padding: 0.8rem 2rem;
+  border-radius: 40px;
+  text-decoration: none !important;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.hero-button.primary {
+  background: white;
+  color: var(--ifm-color-primary) !important;
+}
+
+.hero-button.secondary {
+  background: transparent;
+  color: white !important;
+  border: 2px solid white;
+}
+
+.hero-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== 文档侧边栏优化 ========== */
+.menu__link {
+  border-radius: 8px;
+  margin: 2px 0;
+  font-weight: 500;
+}
+
+.menu__link--active {
+  background: linear-gradient(90deg, var(--ifm-color-primary-lightest) 0%, transparent 100%);
+  border-left: 4px solid var(--ifm-color-primary);
+}
+
+/* ========== 博客列表优化 ========== */
+.blog-list-page {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.blog-post-card {
+  background: var(--home-card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: all 0.3s;
+}
+
+.blog-post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px var(--home-card-shadow-hover);
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 4px 12px var(--home-card-shadow);
 }
 
-/* ========== 页脚 ========== */
-.footer-note {
+/* ========== 页脚优化 ========== */
+.footer {
+  background: var(--ifm-color-primary-darkest);
+  border-top: 4px solid var(--ifm-color-primary);
+}
+
+.footer-message {
   text-align: center;
   color: var(--home-card-text);
   opacity: 0.7;
@@ -181,34 +327,45 @@
   border-top: 1px solid var(--ifm-color-emphasis-200);
 }
 
-/* ========== 深色模式适配 ========== */
-[data-theme='dark'] .hero-section {
-  background: linear-gradient(135deg, var(--ifm-color-primary-dark) 0%, var(--ifm-color-primary-darker) 100%);
-}
-
-[data-theme='dark'] .recent-docs {
-  background: var(--home-card-bg);
-}
-
-[data-theme='dark'] .recent-item {
-  background: var(--ifm-color-emphasis-200);
-}
-
-/* ========== 响应式调整 ========== */
+/* ========== 响应式优化 ========== */
 @media (max-width: 768px) {
-  .hero-stats {
+  .hero-tagline {
+    font-size: 1.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-actions {
     flex-direction: column;
-    gap: 0.5rem;
     align-items: center;
   }
   
-  .quick-nav {
-    grid-template-columns: 1fr;
+  .hero-button {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
   }
   
-  .recent-item {
+  .quick-entry {
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 24px;
+    padding: 0.5rem;
+  }
+  
+  .entry-item {
+    justify-content: center;
+  }
+  
+  .update-item {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.3rem;
+  }
+  
+  .update-date {
+    min-width: auto;
   }
 }
