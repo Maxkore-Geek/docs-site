@@ -66,16 +66,24 @@ const config: Config = {
     },
     
     navbar: {
-      title: 'Maxkore的文档站',
-      logo: {
-        alt: 'GitHub Logo',
-        src: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
-        srcDark: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
-        width: 32,
-        height: 32,
-      },
-      items: [],
+  title: 'Maxkore的文档站',
+  logo: {
+    alt: 'GitHub Logo',
+    src: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
+    srcDark: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
+    width: 32,
+    height: 32,
+  },
+  items: [
+    { to: '/docs', label: '文档', position: 'left' },
+    { to: '/blog', label: '博客', position: 'left' },
+    {
+      href: 'https://github.com/Maxkore-Geek',
+      label: 'GitHub',
+      position: 'right',
     },
+  ],
+},
     
     footer: {
       style: 'dark',
