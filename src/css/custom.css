@@ -9,7 +9,7 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(102, 8, 116, 0.1);
   
-  /* 卡片样式变量 */
+  /* 首页卡片自定义变量 - 浅色模式 */
   --home-card-bg: #ffffff;
   --home-card-text: #333333;
   --home-card-shadow: rgba(102, 8, 116, 0.2);
@@ -34,6 +34,7 @@
   --ifm-color-primary-lightest: #d086e1;
   --docusaurus-highlighted-code-line-bg: rgba(184, 74, 207, 0.3);
   
+  /* 首页卡片自定义变量 - 深色模式 */
   --home-card-bg: #1e1e2e;
   --home-card-text: #e0e0e0;
   --home-card-shadow: rgba(184, 74, 207, 0.2);
@@ -57,6 +58,28 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ========== 首页英雄区域 ========== */
+.hero-section {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, var(--ifm-color-primary-lightest) 0%, var(--ifm-color-primary) 100%);
+  border-radius: 24px;
+  margin: 2rem 0;
+  color: white;
+}
+
+.hero-tagline {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
 }
 
 /* ========== 文档卡片网格 ========== */
@@ -226,56 +249,44 @@
   color: var(--home-card-text);
 }
 
-/* ========== 英雄区域 ========== */
-.hero-section {
-  text-align: center;
-  padding: 3rem 1rem;
-  background: linear-gradient(135deg, var(--ifm-color-primary-lightest) 0%, var(--ifm-color-primary) 100%);
-  border-radius: 24px;
+/* ========== 所有文档卡片 ========== */
+.all-docs {
   margin: 2rem 0;
-  color: white;
 }
 
-.hero-tagline {
-  font-size: 2rem;
-  font-weight: 700;
+.all-docs .card {
+  background: var(--home-card-bg);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  padding: 1.5rem;
   margin-bottom: 1rem;
+  transition: all 0.2s;
 }
 
-.hero-subtitle {
-  font-size: 1.2rem;
-  opacity: 0.9;
-  margin-bottom: 2rem;
+.all-docs .card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 12px var(--home-card-shadow);
 }
 
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
+/* ========== 页脚 ========== */
+.footer-note {
+  text-align: center;
+  color: var(--home-card-text);
+  opacity: 0.7;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
 }
 
-.hero-button {
-  padding: 0.8rem 2rem;
-  border-radius: 40px;
-  text-decoration: none !important;
-  font-weight: 600;
-  transition: all 0.3s;
-}
-
-.hero-button.primary {
-  background: white;
-  color: var(--ifm-color-primary) !important;
-}
-
-.hero-button.secondary {
-  background: transparent;
-  color: white !important;
-  border: 2px solid white;
-}
-
-.hero-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+.footer-message {
+  text-align: center;
+  color: var(--home-card-text);
+  opacity: 0.7;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
 }
 
 /* ========== 文档侧边栏优化 ========== */
@@ -317,17 +328,20 @@
   border-top: 4px solid var(--ifm-color-primary);
 }
 
-.footer-message {
-  text-align: center;
-  color: var(--home-card-text);
-  opacity: 0.7;
-  font-size: 0.9rem;
-  margin-top: 3rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--ifm-color-emphasis-200);
+/* ========== 深色模式适配 ========== */
+[data-theme='dark'] .hero-section {
+  background: linear-gradient(135deg, var(--ifm-color-primary-dark) 0%, var(--ifm-color-primary-darker) 100%);
 }
 
-/* ========== 响应式优化 ========== */
+[data-theme='dark'] .recent-docs {
+  background: var(--home-card-bg);
+}
+
+[data-theme='dark'] .recent-item {
+  background: var(--ifm-color-emphasis-200);
+}
+
+/* ========== 响应式调整 ========== */
 @media (max-width: 768px) {
   .hero-tagline {
     font-size: 1.5rem;
@@ -335,17 +349,6 @@
   
   .hero-subtitle {
     font-size: 1rem;
-  }
-  
-  .hero-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .hero-button {
-    width: 100%;
-    max-width: 300px;
-    text-align: center;
   }
   
   .quick-entry {
