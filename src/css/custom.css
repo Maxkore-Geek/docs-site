@@ -1,56 +1,3 @@
-:root {
-  --ifm-color-primary: #660874;
-  --ifm-color-primary-dark: #5c0768;
-  --ifm-color-primary-darker: #52075d;
-  --ifm-color-primary-darkest: #470651;
-  --ifm-color-primary-light: #700980;
-  --ifm-color-primary-lighter: #7a0a8c;
-  --ifm-color-primary-lightest: #840b98;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(102, 8, 116, 0.1);
-  
-  /* 首页卡片自定义变量 - 浅色模式 */
-  --home-card-bg: #ffffff;
-  --home-card-text: #333333;
-  --home-card-shadow: rgba(102, 8, 116, 0.2);
-  --home-card-shadow-hover: rgba(102, 8, 116, 0.3);
-}
-
-[data-theme='dark'] {
-  --ifm-color-primary: #b84acf;
-  --ifm-color-primary-dark: #a832bd;
-  --ifm-color-primary-darker: #982ba9;
-  --ifm-color-primary-darkest: #872595;
-  --ifm-color-primary-light: #c05ed5;
-  --ifm-color-primary-lighter: #c872db;
-  --ifm-color-primary-lightest: #d086e1;
-  --docusaurus-highlighted-code-line-bg: rgba(184, 74, 207, 0.3);
-  
-  /* 首页卡片自定义变量 - 深色模式 */
-  --home-card-bg: #1e1e2e;
-  --home-card-text: #e0e0e0;
-  --home-card-shadow: rgba(184, 74, 207, 0.2);
-  --home-card-shadow-hover: rgba(184, 74, 207, 0.4);
-}
-
-/* 卡片样式微调 */
-.home-card {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-/* 深色模式下的卡片边框效果 */
-[data-theme='dark'] .home-card {
-  border-color: var(--ifm-color-primary) !important;
-}
-
-/* 响应式调整 */
-@media (max-width: 768px) {
-  .home-card {
-    width: 100% !important;
-    max-width: 350px;
-  }
-}
 /* ========== 首页英雄区域 ========== */
 .hero-section {
   text-align: center;
@@ -65,6 +12,8 @@
   font-size: 1.4rem;
   margin-bottom: 1.5rem;
   opacity: 0.95;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 1px;
 }
 
 .hero-stats {
@@ -79,6 +28,7 @@
   padding: 0.5rem 1rem;
   border-radius: 30px;
   backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* ========== 快速导航卡片 ========== */
@@ -124,12 +74,54 @@
   opacity: 0.8;
 }
 
-/* ========== 最新文档卡片区域 ========== */
+/* ========== 最近文档列表 ========== */
 .recent-docs {
+  margin: 2rem 0;
+  background: var(--home-card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.recent-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+  text-decoration: none !important;
+  transition: all 0.2s;
+}
+
+.recent-item:hover {
+  background: var(--ifm-color-primary-lightest);
+  transform: translateX(4px);
+}
+
+.recent-title {
+  color: var(--ifm-font-color-base);
+  font-weight: 500;
+}
+
+.recent-date {
+  color: var(--ifm-color-primary);
+  font-size: 0.9rem;
+  font-family: monospace;
+}
+
+/* ========== 所有文档卡片 ========== */
+.all-docs {
   margin: 2rem 0;
 }
 
-.recent-docs .card {
+.all-docs .card {
   background: var(--home-card-bg);
   border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 10px;
@@ -138,109 +130,9 @@
   transition: all 0.2s;
 }
 
-.recent-docs .card:hover {
+.all-docs .card:hover {
   border-color: var(--ifm-color-primary);
   box-shadow: 0 4px 12px var(--home-card-shadow);
-}
-
-/* ========== 分类网格 ========== */
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.category-card {
-  background: var(--home-card-bg);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.3s;
-}
-
-.category-card:hover {
-  border-color: var(--ifm-color-primary);
-  transform: translateY(-2px);
-}
-
-.category-card h3 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  color: var(--ifm-color-primary);
-  font-size: 1.3rem;
-  border-bottom: 2px solid var(--ifm-color-primary-lightest);
-  padding-bottom: 0.5rem;
-}
-
-.category-card ul {
-  margin: 0;
-  padding-left: 1.2rem;
-}
-
-.category-card li {
-  margin: 0.5rem 0;
-}
-
-.category-card a {
-  color: var(--home-card-text);
-  text-decoration: none;
-}
-
-.category-card a:hover {
-  color: var(--ifm-color-primary);
-  text-decoration: underline;
-}
-
-/* ========== 更新时间线 ========== */
-.update-timeline {
-  background: var(--home-card-bg);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin: 2rem 0;
-  border-left: 4px solid var(--ifm-color-primary);
-}
-
-.update-timeline li {
-  margin: 0.8rem 0;
-  list-style: none;
-  padding-left: 1.5rem;
-  position: relative;
-}
-
-.update-timeline li::before {
-  content: "●";
-  color: var(--ifm-color-primary);
-  font-size: 1.2rem;
-  position: absolute;
-  left: 0;
-  top: -0.1rem;
-}
-
-/* ========== 联系方式 ========== */
-.contact-section {
-  text-align: center;
-  padding: 2rem 0;
-  font-size: 1.2rem;
-}
-
-.contact-link {
-  color: var(--ifm-color-primary);
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  transition: background 0.2s;
-}
-
-.contact-link:hover {
-  background: var(--ifm-color-primary-lightest);
-  color: white;
-}
-
-.contact-sep {
-  color: var(--ifm-color-primary);
-  opacity: 0.5;
-  margin: 0 0.5rem;
 }
 
 /* ========== 页脚 ========== */
@@ -259,13 +151,12 @@
   background: linear-gradient(135deg, var(--ifm-color-primary-dark) 0%, var(--ifm-color-primary-darker) 100%);
 }
 
-[data-theme='dark'] .category-card {
+[data-theme='dark'] .recent-docs {
   background: var(--home-card-bg);
-  border-color: var(--ifm-color-emphasis-300);
 }
 
-[data-theme='dark'] .update-timeline {
-  background: var(--home-card-bg);
+[data-theme='dark'] .recent-item {
+  background: var(--ifm-color-emphasis-200);
 }
 
 /* ========== 响应式调整 ========== */
@@ -280,7 +171,9 @@
     grid-template-columns: 1fr;
   }
   
-  .category-grid {
-    grid-template-columns: 1fr;
+  .recent-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
   }
 }
