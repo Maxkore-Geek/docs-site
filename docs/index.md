@@ -6,6 +6,7 @@ sidebar_position: 0
 hide_table_of_contents: true
 ---
 
+import React from 'react';
 import DocCardList from '@theme/DocCardList';
 import {useDocsSidebar} from '@docusaurus/theme-common';
 import {useAllDocsData} from '@docusaurus/plugin-content-docs/client';
@@ -82,10 +83,8 @@ function StatsDisplay() {
   const docsData = useAllDocsData();
   const docs = docsData.default?.versions[0]?.docs || [];
   
-  // 统计文档数量
   const docCount = docs.length;
   
-  // 统计分类数量（根据路径中的category）
   const categories = new Set(
     docs
       .map(doc => doc.path.split('/').slice(0, -1).join('/'))
@@ -93,7 +92,6 @@ function StatsDisplay() {
   );
   const categoryCount = categories.size;
   
-  // 获取最后更新时间（取所有文档中最新的）
   const lastUpdate = docs
     .map(doc => doc.lastUpdatedAt)
     .filter(Boolean)
@@ -104,11 +102,11 @@ function StatsDisplay() {
     : '2026-03-04';
 
   return (
-    <>
+    <React.Fragment>
       <span>📄 累计文档 <strong>{docCount}</strong> 篇</span>
       <span>📁 分类 <strong>{categoryCount}</strong> 个</span>
       <span>🕒 最后更新 <strong>{lastUpdateDate}</strong></span>
-    </>
+    </React.Fragment>
   );
 }
 
@@ -116,7 +114,6 @@ function RecentDocs() {
   const docsData = useAllDocsData();
   const docs = docsData.default?.versions[0]?.docs || [];
   
-  // 按最后更新时间排序，取最新的5篇
   const recentDocs = docs
     .filter(doc => doc.lastUpdatedAt)
     .sort((a, b) => b.lastUpdatedAt - a.lastUpdatedAt)
