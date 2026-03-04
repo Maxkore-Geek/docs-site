@@ -1,8 +1,10 @@
 ---
-title: 📚 Maxkore 知识库
-description: 代码之外，思考之上 · 文档与教程中心
-sidebar_label: 🏠 首页
+title: '⚡ Maxkore · 文档库'
+description: '代码之外 | 思考之上'
+sidebar_label: '⎈ 核心节点'
 sidebar_position: 0
+image: /img/og-image.jpg
+hide_table_of_contents: true
 ---
 
 import DocCardList from '@theme/DocCardList';
