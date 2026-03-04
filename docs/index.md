@@ -1,23 +1,21 @@
 ---
-title: '⚡ Maxkore · 文档库'
+title: '⚡ Maxkore'
 description: '代码之外 | 思考之上'
 sidebar_label: '⎈ 核心节点'
 sidebar_position: 0
-image: /img/og-image.jpg
 hide_table_of_contents: true
 ---
 
 import DocCardList from '@theme/DocCardList';
-import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+import {useDocsSidebar} from '@docusaurus/theme-common';
+import {useAllDocsData} from '@docusaurus/plugin-content-docs/client';
 
-# 📚 Maxkore 知识库
+# ⚡ MAXKORE · 知识矩阵
 
 <div className="hero-section">
-  <p className="hero-tagline">代码之外，思考之上 · 文档与教程中心</p>
+  <p className="hero-tagline">代码之外 | 思考之上</p>
   <div className="hero-stats">
-    <span>📄 累计文档 <strong>3</strong> 篇</span>
-    <span>📁 分类 <strong>2</strong> 个</span>
-    <span>🕒 最后更新 <strong>2026-03-04</strong></span>
+    <StatsDisplay />
   </div>
 </div>
 
@@ -30,7 +28,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
     <div className="nav-icon">📝</div>
     <div className="nav-content">
       <h3>技术博客</h3>
-      <p>编程心得 · 技术思考 · 踩坑记录</p>
+      <p>编程心得 · 技术思考</p>
     </div>
   </a>
   <a href="/docs/category/tutorial-basics" className="nav-card">
@@ -61,71 +59,15 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 ## 📖 最新文档
 
 <div className="recent-docs">
-
-{/* 这里会自动显示最近的文档卡片 */}
-<DocCardList items={useCurrentSidebarCategory().items} />
-
+  <RecentDocs />
 </div>
 
 ---
 
-## 📂 文档分类
+## 📂 所有文档
 
-<div className="category-grid">
-
-{/* 这里可以手动列出主要分类 */}
-<div className="category-card">
-  <h3>📘 基础教程</h3>
-  <p>适合初学者的入门指南</p>
-  <ul>
-    <li><a href="/docs/Welcome">👋 欢迎页面</a></li>
-    <li><a href="/docs/intro">📖 快速入门</a></li>
-  </ul>
-</div>
-
-<div className="category-card">
-  <h3>🚀 进阶指南</h3>
-  <p>深入技术细节</p>
-  <ul>
-    <li><a href="/docs/tutorial-extras/translate-your-site">🌍 多语言配置</a></li>
-    <li><a href="/docs/tutorial-extras/manage-docs-versions">📌 文档版本管理</a></li>
-  </ul>
-</div>
-
-<div className="category-card">
-  <h3>💡 最佳实践</h3>
-  <p>开发经验与技巧</p>
-  <ul>
-    <li><a href="/blog/2026/03/01/使用指南">📝 使用指南</a></li>
-    <li>🚧 施工中...</li>
-  </ul>
-</div>
-
-</div>
-
----
-
-## 🔄 最近更新
-
-<div className="update-timeline">
-
-- **2026-03-04** - 新增 [👋 欢迎页面](/docs/Welcome)
-- **2026-03-04** - 优化文档首页样式
-- **2026-03-01** - 发布 [📝 使用指南](/blog/2026/03/01/使用指南)
-- **2026-03-01** - 网站正式上线 🎉
-
-</div>
-
----
-
-## 📬 与我联系
-
-<div className="contact-section">
-  <a href="https://github.com/Maxkore-Geek" className="contact-link">GitHub</a>
-  <span className="contact-sep">·</span>
-  <a href="/blog" className="contact-link">博客</a>
-  <span className="contact-sep">·</span>
-  <a href="#" className="contact-link">关于</a>
+<div className="all-docs">
+  <DocCardList items={useDocsSidebar().items} />
 </div>
 
 ---
@@ -133,3 +75,63 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 <div className="footer-note">
   <p>✍️ 持续写作 · 始于 2026</p>
 </div>
+
+{/* ========== 自定义组件 ========== */}
+
+function StatsDisplay() {
+  const docsData = useAllDocsData();
+  const docs = docsData.default?.versions[0]?.docs || [];
+  
+  // 统计文档数量
+  const docCount = docs.length;
+  
+  // 统计分类数量（根据路径中的category）
+  const categories = new Set(
+    docs
+      .map(doc => doc.path.split('/').slice(0, -1).join('/'))
+      .filter(path => path.includes('/category/'))
+  );
+  const categoryCount = categories.size;
+  
+  // 获取最后更新时间（取所有文档中最新的）
+  const lastUpdate = docs
+    .map(doc => doc.lastUpdatedAt)
+    .filter(Boolean)
+    .sort((a, b) => b - a)[0];
+  
+  const lastUpdateDate = lastUpdate 
+    ? new Date(lastUpdate * 1000).toISOString().split('T')[0]
+    : '2026-03-04';
+
+  return (
+    <>
+      <span>📄 累计文档 <strong>{docCount}</strong> 篇</span>
+      <span>📁 分类 <strong>{categoryCount}</strong> 个</span>
+      <span>🕒 最后更新 <strong>{lastUpdateDate}</strong></span>
+    </>
+  );
+}
+
+function RecentDocs() {
+  const docsData = useAllDocsData();
+  const docs = docsData.default?.versions[0]?.docs || [];
+  
+  // 按最后更新时间排序，取最新的5篇
+  const recentDocs = docs
+    .filter(doc => doc.lastUpdatedAt)
+    .sort((a, b) => b.lastUpdatedAt - a.lastUpdatedAt)
+    .slice(0, 5);
+
+  return (
+    <div className="recent-list">
+      {recentDocs.map(doc => (
+        <a href={doc.path} key={doc.id} className="recent-item">
+          <span className="recent-title">{doc.title}</span>
+          <span className="recent-date">
+            {new Date(doc.lastUpdatedAt * 1000).toISOString().split('T')[0]}
+          </span>
+        </a>
+      ))}
+    </div>
+  );
+}
