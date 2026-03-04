@@ -1,3 +1,38 @@
+:root {
+  --ifm-color-primary: #660874;
+  --ifm-color-primary-dark: #5c0768;
+  --ifm-color-primary-darker: #52075d;
+  --ifm-color-primary-darkest: #470651;
+  --ifm-color-primary-light: #700980;
+  --ifm-color-primary-lighter: #7a0a8c;
+  --ifm-color-primary-lightest: #840b98;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(102, 8, 116, 0.1);
+  
+  /* 首页卡片自定义变量 - 浅色模式 */
+  --home-card-bg: #ffffff;
+  --home-card-text: #333333;
+  --home-card-shadow: rgba(102, 8, 116, 0.2);
+  --home-card-shadow-hover: rgba(102, 8, 116, 0.3);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #b84acf;
+  --ifm-color-primary-dark: #a832bd;
+  --ifm-color-primary-darker: #982ba9;
+  --ifm-color-primary-darkest: #872595;
+  --ifm-color-primary-light: #c05ed5;
+  --ifm-color-primary-lighter: #c872db;
+  --ifm-color-primary-lightest: #d086e1;
+  --docusaurus-highlighted-code-line-bg: rgba(184, 74, 207, 0.3);
+  
+  /* 首页卡片自定义变量 - 深色模式 */
+  --home-card-bg: #1e1e2e;
+  --home-card-text: #e0e0e0;
+  --home-card-shadow: rgba(184, 74, 207, 0.2);
+  --home-card-shadow-hover: rgba(184, 74, 207, 0.4);
+}
+
 /* ========== 首页英雄区域 ========== */
 .hero-section {
   text-align: center;
