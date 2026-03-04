@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Maxkore的文档站',
   tagline: '代码之外,思考之上.',
-  favicon: 'img/favicon.ico',
+  favicon: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
 
   future: {
     v4: true,
