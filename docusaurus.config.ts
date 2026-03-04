@@ -34,9 +34,12 @@ const config: Config = {
       'classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts',
-          // 暂时移除 editUrl 和其他选项，只保留核心配置
-          // editUrl: 'https://github.com/Maxkore-Geek/docs-site/tree/main/',
+            sidebarPath: './sidebars.ts',
+            path: 'docs',  // 指定文档目录
+            routeBasePath: 'docs',  // 指定路由路径
+            editUrl: 'https://github.com/Maxkore-Geek/docs-site/tree/main/',
+            showLastUpdateTime: true,
+            showLastUpdateAuthor: true,
         },
         blog: {
           showReadingTime: true,
