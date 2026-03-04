@@ -34,12 +34,12 @@ const config: Config = {
       'classic',
       {
         docs: {
-            sidebarPath: './sidebars.ts',
-            path: 'docs',  // 指定文档目录
-            routeBasePath: 'docs',  // 指定路由路径
-            editUrl: 'https://github.com/Maxkore-Geek/docs-site/tree/main/',
-            showLastUpdateTime: true,
-            showLastUpdateAuthor: true,
+          sidebarPath: './sidebars.ts',
+          path: 'docs',
+          routeBasePath: 'docs',
+          editUrl: 'https://github.com/Maxkore-Geek/docs-site/tree/main/',
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
         },
         blog: {
           showReadingTime: true,
@@ -47,7 +47,6 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // editUrl: 'https://github.com/Maxkore-Geek/docs-site/tree/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -66,24 +65,24 @@ const config: Config = {
     },
     
     navbar: {
-  title: 'Maxkore的文档站',
-  logo: {
-    alt: 'GitHub Logo',
-    src: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
-    srcDark: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
-    width: 32,
-    height: 32,
-  },
-  items: [
-    { to: '/docs', label: '文档', position: 'left' },
-    { to: '/blog', label: '博客', position: 'left' },
-    {
-      href: 'https://github.com/Maxkore-Geek',
-      label: 'GitHub',
-      position: 'right',
+      title: 'Maxkore的文档站',
+      logo: {
+        alt: 'GitHub Logo',
+        src: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
+        srcDark: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
+        width: 32,
+        height: 32,
+      },
+      items: [
+        { to: '/docs', label: '文档', position: 'left' },
+        { to: '/blog', label: '博客', position: 'left' },
+        {
+          href: 'https://github.com/Maxkore-Geek',
+          label: 'GitHub',
+          position: 'right',
+        },
+      ],
     },
-  ],
-},
     
     footer: {
       style: 'dark',
