@@ -94,3 +94,20 @@
 [data-theme='dark'] .DocSearch-Modal {
   background: var(--ifm-background-surface-color) !important;
 }
+/* 将 Recent posts 改为中文 */
+.blog-wrapper .blog-list-page h2:contains("Recent posts"),
+.blog-wrapper .blog-list-page h2:contains("Recent"),
+.blog-wrapper h2:contains("Recent posts") {
+  visibility: hidden;
+  position: relative;
+}
+
+.blog-wrapper .blog-list-page h2:contains("Recent posts")::before,
+.blog-wrapper .blog-list-page h2:contains("Recent")::before,
+.blog-wrapper h2:contains("Recent posts")::before {
+  visibility: visible;
+  position: absolute;
+  content: "近期文章";
+  left: 0;
+  top: 0;
+}
