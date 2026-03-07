@@ -1,28 +1,83 @@
----
-title: '📚 Maxkore 文档中心'
-description: '代码之外 | 思考之上 · 技术文档与教程'
-sidebar_label: '文档首页'
-sidebar_position: 0
-hide_table_of_contents: true
----
+import {themes as prismThemes} from 'prism-react-renderer';
+import type {Config} from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
 
-import DocCardList from '@theme/DocCardList';
+const config: Config = {
+  title: 'Maxkore的文档站',
+  tagline: '代码之外，思考之上',
+  favicon: 'https://github.githubassets.com/favicon.ico',
 
-# 📚 Maxkore 文档中心
+  url: 'https://docs-site.bbroot.com',
+  baseUrl: '/',
 
-<div className="hero-section">
-  <p className="hero-tagline">代码之外 · 思考之上</p>
-  <p className="hero-subtitle">技术文档 | 教程指南 | 知识沉淀</p>
-</div>
+  organizationName: 'Maxkore-Geek',
+  projectName: 'docs-site',
 
-## 📖 所有文档
+  onBrokenLinks: 'warn',
+  onBrokenMarkdownLinks: 'warn',
 
-<div className="all-docs">
-  <DocCardList />
-</div>
+  i18n: {
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans', 'en'],
+  },
 
----
+  presets: [
+    [
+      'classic',
+      {
+        docs: {
+          sidebarPath: './sidebars.ts',
+          path: 'docs',
+          routeBasePath: 'docs',
+          breadcrumbs: true,
+        },
+        blog: {
+          showReadingTime: true,
+        },
+        theme: {
+          customCss: './src/css/custom.css',
+        },
+      },
+    ],
+  ],
 
-<div className="footer-note">
-  <p>✍️ 持续更新中 · 始于 2026</p>
-</div>
+  themeConfig: {
+    // 颜色模式：只保留亮色和暗色
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
+    },
+    
+    // Algolia 搜索配置
+    algolia: {
+  appId: 'ZHOZ1S2L94',
+  apiKey: '8eade69f4d82f0dacc4c2a61f139e939',
+  indexName: 'docs-site.bbroot.com',
+  contextualSearch: true,
+  searchParameters: {},
+  searchPagePath: 'search',
+},
+    
+    navbar: {
+  title: 'Maxkore的文档站',
+  logo: {
+    alt: 'Logo',
+    src: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
+  },
+  items: [
+    { to: '/docs', label: '文档', position: 'left' },
+    { to: '/blog', label: '博客', position: 'left' },
+    // ❌ 去掉自定义搜索
+    // ❌ 去掉GitHub链接
+  ],
+},
+    
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+    },
+  },
+};
+
+export default config;

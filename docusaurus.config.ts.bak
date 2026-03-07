@@ -1,0 +1,28 @@
+---
+title: '📚 Maxkore 文档中心'
+description: '代码之外 | 思考之上 · 技术文档与教程'
+sidebar_label: '文档首页'
+sidebar_position: 0
+hide_table_of_contents: true
+---
+
+import DocCardList from '@theme/DocCardList';
+
+# 📚 Maxkore 文档中心
+
+<div className="hero-section">
+  <p className="hero-tagline">代码之外 · 思考之上</p>
+  <p className="hero-subtitle">技术文档 | 教程指南 | 知识沉淀</p>
+</div>
+
+## 📖 所有文档
+
+<div className="all-docs">
+  <DocCardList />
+</div>
+
+---
+
+<div className="footer-note">
+  <p>✍️ 持续更新中 · 始于 2026</p>
+</div>
