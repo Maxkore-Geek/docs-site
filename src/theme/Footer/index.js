@@ -44,7 +44,7 @@ export default function FooterWrapper(props) {
           }}
         >
           <span>✏️</span>
-          <span>在 GitHub 写文章</span>
+          <span>新建文章</span>  {/* ✅ 修改这里 */}
         </Link>
         
         <Link
@@ -74,7 +74,7 @@ export default function FooterWrapper(props) {
           }}
         >
           <span>📝</span>
-          <span>写博客</span>
+          <span>新建博客</span>  {/* ✅ 修改这里 */}
         </Link>
       </div>
     </>
