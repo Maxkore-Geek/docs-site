@@ -111,3 +111,91 @@
   left: 0;
   top: 0;
 }
+
+/* 修复选中状态文字颜色 */
+*::selection {
+  background: var(--ifm-color-primary) !important;
+  color: white !important;
+}
+
+/* 针对搜索框选中的特殊处理 */
+.DocSearch-Input::selection {
+  background: var(--ifm-color-primary) !important;
+  color: white !important;
+}
+
+/* 代码块选中样式 */
+code::selection {
+  background: var(--ifm-color-primary) !important;
+  color: white !important;
+}
+
+/* 链接选中样式 */
+a::selection {
+  background: var(--ifm-color-primary) !important;
+  color: white !important;
+}
+
+/* 标题选中样式 */
+h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection {
+  background: var(--ifm-color-primary) !important;
+  color: white !important;
+}
+/* 修复 /search 页面的 Algolia 水印 */
+[class*="SearchResultPage"] [class*="PoweredBy"] {
+  display: none !important;
+}
+
+[class*="SearchResultPage"] footer,
+[class*="SearchResultPage"] .footer {
+  display: none !important;
+}
+
+/* 隐藏"由 Algolia 提供"文字 */
+[class*="SearchResultPage"] [class*="algolia"] {
+  display: none !important;
+}
+
+/* 更彻底的隐藏 */
+div:has(> a[href*="algolia.com"]) {
+  display: none !important;
+}
+
+/* 针对搜索结果页底部 */
+.search-result-page-footer,
+.ais-PoweredBy,
+.algolia-branding {
+  display: none !important;
+}
+/* 恢复选中状态为浏览器默认样式 */
+::selection {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+::-moz-selection {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+/* 取消所有强制选中样式 */
+*::selection {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+*::-moz-selection {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+/* 搜索框内选中恢复默认 */
+.DocSearch-Input::selection {
+  background: highlight !important;
+  color: highlighttext !important;
+}
+
+.DocSearch-Input::-moz-selection {
+  background: highlight !important;
+  color: highlighttext !important;
+}
