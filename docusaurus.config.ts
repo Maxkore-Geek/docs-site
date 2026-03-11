@@ -1,33 +1,24 @@
-import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Maxkore的文档站',
+  title: 'Maxkore的极客空间',
   tagline: '代码之外，思考之上',
   favicon: 'https://github.githubassets.com/favicon.ico',
 
-  url: 'https://docs-site.bbroot.com',
+  url: 'https://geek.bbroot.com',
   baseUrl: '/',
 
   organizationName: 'Maxkore-Geek',
-  projectName: 'docs-site',
+  projectName: 'geek-space',
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
-  defaultLocale: 'zh-Hans',
-  locales: ['zh-Hans', 'en'],
-  localeConfigs: {
-    'zh-Hans': {
-      label: '中文',
-    },
-    en: {
-      label: 'English',
-    },
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans', 'en'],
   },
-},
 
   presets: [
     [
@@ -35,57 +26,111 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          path: 'docs',
-          routeBasePath: 'docs',
+          path: 'help',
+          routeBasePath: 'help',
           breadcrumbs: true,
         },
         blog: {
+          path: 'geek',
+          routeBasePath: 'geek',
+          blogSidebarTitle: '近期极客',
+          blogSidebarCount: 5,
           showReadingTime: true,
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: [
+            './src/css/custom.css',
+            require.resolve("@slashid/react/style.css"),
+          ],
         },
       },
     ],
   ],
 
+  // ✅ 插件列表
+  plugins: [
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'wiki',
+        path: 'wiki',
+        routeBasePath: 'wiki',
+        blogSidebarTitle: '维基知识库',
+        blogSidebarCount: 10,
+        showReadingTime: true,
+        postsPerPage: 20,
+      },
+    ],
+    [
+    '@orama/plugin-docusaurus-v3',
+    {
+      apiKey: 'iitY4TdImiu98shHBpesmEaIgHaqZJ29',
+      // 构建完整的 endpoint URL
+      endpoint: 'https://cloud.orama.com/v2/indexes/manhoajia23jg60gqwthmg9q/_search',
+      searchResultLimits: 10,
+      searchResultContextMaxLength: 50,
+      translations: {
+        search_placeholder: '搜索极客空间...',
+      },
+    },
+  ],
+    './src/plugins/dashboard',
+  ],
+
+  // ✅ 主题配置（包含登录认证）
   themeConfig: {
-    // 颜色模式：只保留亮色和暗色
+    // 颜色模式
     colorMode: {
       defaultMode: 'light',
       disableSwitch: false,
       respectPrefersColorScheme: false,
     },
     
-    // Algolia 搜索配置
-    algolia: {
-  appId: 'ZHOZ1S2L94',
-  apiKey: '8eade69f4d82f0dacc4c2a61f139e939',
-  indexName: 'docs-site.bbroot.com',
-  contextualSearch: true,
-  searchParameters: {},
-  searchPagePath: 'search',
-},
+    // ✅ SlashID 登录认证配置
+    slashID: {
+      orgID: "069b1618-f70f-7671-8904-de40f5af6267",
+      forceLogin: false,
+      privatePaths: [
+        {
+          path: "/dashboard/**",        // 控制台需要登录
+          groups: ["member"],
+        },
+        {
+          path: "/wiki/private/**",      // 部分维基需要登录
+          groups: ["member"],
+        },
+      ],
+      formConfiguration: {
+        factors: [{ method: "email_link" }, { method: "password" }],
+        text: {
+          "initial.title": "登录 Maxkore 极客空间",
+        },
+      },
+    },
     
+    // 导航栏
     navbar: {
-  title: 'Maxkore的文档站',
-  logo: {
-    alt: 'Logo',
-    src: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
-  },
-  items: [
-    { to: '/docs', label: '文档', position: 'left' },
-    { to: '/blog', label: '博客', position: 'left' },
-    // ❌ 去掉自定义搜索
-    // ❌ 去掉GitHub链接
-  ],
-},
+      title: 'Maxkore的极客空间',
+      logo: {
+        alt: 'Logo',
+        src: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
+      },
+      items: [
+        { to: '/geek', label: '极客', position: 'left' },
+        { to: '/help', label: '帮助', position: 'left' },
+        { to: '/wiki', label: '维基', position: 'left' },
+        { to: '/dashboard', label: '控制台', position: 'left' },
+      ],
+    },
     
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: require('prism-react-renderer').themes.github,
+      darkTheme: require('prism-react-renderer').themes.dracula,
     },
   },
+
+  // ✅ 添加 SlashID 主题
+  themes: ["@slashid/docusaurus-theme-slashid"],
 };
 
 export default config;

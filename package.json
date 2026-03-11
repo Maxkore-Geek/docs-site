@@ -22,6 +22,8 @@
     "@docusaurus/theme-search-algolia": "^3.9.2",
     "@mdx-js/react": "^3.0.0",
     "@node-rs/jieba": "^2.0.1",
+    "@slashid/docusaurus-theme-slashid": "^0.5.4",
+    "@slashid/react": "^1.33.0",
     "clsx": "^2.0.0",
     "docusaurus-lunr-search": "^3.6.0",
     "dot-prop": "^10.1.0",
