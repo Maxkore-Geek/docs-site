@@ -61,19 +61,7 @@ const config: Config = {
         postsPerPage: 20,
       },
     ],
-    [
-    '@orama/plugin-docusaurus-v3',
-    {
-      apiKey: 'iitY4TdImiu98shHBpesmEaIgHaqZJ29',
-      // 构建完整的 endpoint URL
-      endpoint: 'https://cloud.orama.com/v2/indexes/manhoajia23jg60gqwthmg9q/_search',
-      searchResultLimits: 10,
-      searchResultContextMaxLength: 50,
-      translations: {
-        search_placeholder: '搜索极客空间...',
-      },
-    },
-  ],
+    
     './src/plugins/dashboard',
   ],
 
