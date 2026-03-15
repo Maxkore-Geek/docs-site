@@ -5,7 +5,14 @@ export default function EditThisPage() {
   const location = useLocation();
   const { pathname } = location;
   
-  // 根据当前路径生成对应的GitHub文件路径
+  // 特殊页面不显示编辑按钮
+  const shouldShowButton = () => {
+    if (pathname === '/' || pathname === '/search' || pathname === '/docs' || pathname === '/blog') {
+      return false;
+    }
+    return true;
+  };
+
   const getGitHubPath = () => {
     // 首页
     if (pathname === '/' || pathname === '') {
@@ -29,23 +36,26 @@ export default function EditThisPage() {
     
     // 具体文档
     if (pathname.startsWith('/docs/')) {
-      // 移除 /docs/ 前缀，加上 .md
       const docPath = pathname.replace('/docs/', '');
       return `docs/${docPath}.md`;
     }
     
-    // 具体博客
+    // 具体博客（处理日期格式）
     if (pathname.startsWith('/blog/')) {
-      // 移除 /blog/ 前缀，加上 .md
+      // 从 URL 提取文件名，需要根据实际文件名调整
+      // 假设博客文件是 YYYY-MM-DD-标题.md 格式
       const blogPath = pathname.replace('/blog/', '');
       return `blog/${blogPath}.md`;
     }
     
-    // 默认返回当前路径（去掉开头的斜杠）
-    return pathname.substring(1) + '.tsx';
+    return '';
   };
 
+  if (!shouldShowButton()) return null;
+
   const githubPath = getGitHubPath();
+  if (!githubPath) return null;
+
   const githubUrl = `https://github.com/Maxkore-Geek/docs-site/edit/main/${githubPath}`;
 
   return (
@@ -75,7 +85,7 @@ export default function EditThisPage() {
         e.currentTarget.style.transform = 'translateY(0)';
       }}
     >
-      ✏️ 在GitHub上编辑此页
+      ✏️ 编辑此页
     </a>
   );
 }
