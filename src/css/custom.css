@@ -20,9 +20,8 @@
   --ifm-color-primary-lightest: #d086e1;
   --docusaurus-highlighted-code-line-bg: rgba(184, 74, 207, 0.3);
 }
-/* 删除了所有泛滥的卡片样式 */
 
-/* 自定义深浅切换按钮样式 - 使用你提供的图标 */
+/* 深浅切换按钮样式 */
 .toggleIcon_g3eP {
   width: 24px;
   height: 24px;
@@ -32,174 +31,19 @@
   fill: currentColor;
 }
 
-.systemToggleIcon_QzmC path {
-  fill: currentColor;
-}
-/* 隐藏Algolia水印 */
-.DocSearch-Footer {
-  display: none !important;
-}
-
-/* 或者更温和的方式：只隐藏文字 */
-.DocSearch-Logo {
-  display: none !important;
-}
-
-/* 调整搜索框高度 */
-.DocSearch-Button {
-  height: 34px !important;
-}
-/* 博客列表页靠边 */
-.blog-wrapper .container {
+/* 博客列表页靠边 - 统一版本 */
+.blog-wrapper .container,
+.blog-list-page {
   max-width: 100% !important;
   padding-left: 2rem !important;
   padding-right: 2rem !important;
 }
 
-.blog-list-page {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-}
-
-/* 博客文章卡片 */
 .blog-list-page article {
   margin-bottom: 2rem !important;
 }
-/* 搜索框点击后居中 */
-.DocSearch-Container {
-  background: rgba(0, 0, 0, 0.5) !important;
-}
 
-.DocSearch-Modal {
-  margin: 0 auto !important;
-  top: 15% !important;
-  transform: none !important;
-  left: 0 !important;
-  right: 0 !important;
-  position: fixed !important;
-  width: 560px !important;
-  max-width: 90vw !important;
-}
-
-/* 搜索框内部样式 */
-.DocSearch-SearchBar {
-  padding: 0.75rem 1rem !important;
-}
-
-.DocSearch-Input {
-  font-size: 1.1rem !important;
-}
-
-/* 深色模式适配 */
-[data-theme='dark'] .DocSearch-Modal {
-  background: var(--ifm-background-surface-color) !important;
-}
-/* 将 Recent posts 改为中文 */
-.blog-wrapper .blog-list-page h2:contains("Recent posts"),
-.blog-wrapper .blog-list-page h2:contains("Recent"),
-.blog-wrapper h2:contains("Recent posts") {
-  visibility: hidden;
-  position: relative;
-}
-
-.blog-wrapper .blog-list-page h2:contains("Recent posts")::before,
-.blog-wrapper .blog-list-page h2:contains("Recent")::before,
-.blog-wrapper h2:contains("Recent posts")::before {
-  visibility: visible;
-  position: absolute;
-  content: "近期文章";
-  left: 0;
-  top: 0;
-}
-
-/* 修复选中状态文字颜色 */
-*::selection {
-  background: var(--ifm-color-primary) !important;
-  color: white !important;
-}
-
-/* 针对搜索框选中的特殊处理 */
-.DocSearch-Input::selection {
-  background: var(--ifm-color-primary) !important;
-  color: white !important;
-}
-
-/* 代码块选中样式 */
-code::selection {
-  background: var(--ifm-color-primary) !important;
-  color: white !important;
-}
-
-/* 链接选中样式 */
-a::selection {
-  background: var(--ifm-color-primary) !important;
-  color: white !important;
-}
-
-/* 标题选中样式 */
-h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection {
-  background: var(--ifm-color-primary) !important;
-  color: white !important;
-}
-/* 修复 /search 页面的 Algolia 水印 */
-[class*="SearchResultPage"] [class*="PoweredBy"] {
-  display: none !important;
-}
-
-[class*="SearchResultPage"] footer,
-[class*="SearchResultPage"] .footer {
-  display: none !important;
-}
-
-/* 隐藏"由 Algolia 提供"文字 */
-[class*="SearchResultPage"] [class*="algolia"] {
-  display: none !important;
-}
-
-/* 更彻底的隐藏 */
-div:has(> a[href*="algolia.com"]) {
-  display: none !important;
-}
-
-/* 针对搜索结果页底部 */
-.search-result-page-footer,
-.ais-PoweredBy,
-.algolia-branding {
-  display: none !important;
-}
-/* 恢复选中状态为浏览器默认样式 */
-::selection {
-  background: transparent !important;
-  color: inherit !important;
-}
-
-::-moz-selection {
-  background: transparent !important;
-  color: inherit !important;
-}
-
-/* 取消所有强制选中样式 */
-*::selection {
-  background: transparent !important;
-  color: inherit !important;
-}
-
-*::-moz-selection {
-  background: transparent !important;
-  color: inherit !important;
-}
-
-/* 搜索框内选中恢复默认 */
-.DocSearch-Input::selection {
-  background: highlight !important;
-  color: highlighttext !important;
-}
-
-.DocSearch-Input::-moz-selection {
-  background: highlight !important;
-  color: highlighttext !important;
-}
-/* 现代搜索框样式 */
+/* 现代搜索框样式（统一版本） */
 .DocSearch-Container {
   background: rgba(0, 0, 0, 0.6) !important;
   backdrop-filter: blur(8px) !important;
@@ -221,7 +65,6 @@ div:has(> a[href*="algolia.com"]) {
   overflow: hidden !important;
 }
 
-/* 搜索头部 */
 .DocSearch-SearchBar {
   padding: 0 !important;
   border-bottom: 1px solid var(--ifm-color-emphasis-200) !important;
@@ -257,7 +100,6 @@ div:has(> a[href*="algolia.com"]) {
   outline: none !important;
 }
 
-/* ESC按钮 */
 .DocSearch-Commands {
   display: flex !important;
 }
@@ -281,19 +123,12 @@ div:has(> a[href*="algolia.com"]) {
   display: none !important;
 }
 
-/* 搜索结果区域 */
 .DocSearch-Dropdown {
   max-height: 460px !important;
   overflow-y: auto !important;
   padding: 0.5rem !important;
 }
 
-/* 无结果时隐藏 */
-.DocSearch-Dropdown:empty {
-  display: none !important;
-}
-
-/* 搜索结果项 */
 .DocSearch-Hit {
   padding: 0 !important;
   margin: 0.25rem 0 !important;
@@ -332,8 +167,20 @@ div:has(> a[href*="algolia.com"]) {
   background: transparent !important;
 }
 
-/* 页脚（隐藏Algolia水印） */
-.DocSearch-Footer {
+/* 隐藏Algolia水印（统一版本） */
+.DocSearch-Footer,
+.DocSearch-Logo,
+[class*="SearchResultPage"] [class*="PoweredBy"],
+[class*="SearchResultPage"] footer,
+[class*="SearchResultPage"] [class*="algolia"],
+.search-result-page-footer,
+.ais-PoweredBy,
+.algolia-branding {
+  display: none !important;
+}
+
+/* 隐藏"由 Algolia 提供"文字 */
+div:has(> a[href*="algolia.com"]) {
   display: none !important;
 }
 
