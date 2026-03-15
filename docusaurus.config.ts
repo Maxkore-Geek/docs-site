@@ -20,19 +20,6 @@ const config: Config = {
     defaultLocale: 'zh-Hans',
     locales: ['zh-Hans', 'en'],
   },
-
-  plugins: [
-  [
-    '@docusaurus/plugin-ideal-image',
-    {
-      quality: 80,
-      max: 1200,
-      min: 400,
-      steps: 3,
-      disableInDev: false,
-    },
-  ],
-],
   
   presets: [
     [
