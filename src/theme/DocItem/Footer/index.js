@@ -3,9 +3,13 @@ import { useDoc } from '@docusaurus/theme-common/internal';
 import Link from '@docusaurus/Link';
 
 export default function DocItemFooter() {
+  // useDoc 返回的对象包含 metadata
   const { metadata } = useDoc();
+  
+  // 从 metadata 中解构需要的字段
   const { editUrl, lastUpdatedAt, lastUpdatedBy, formattedLastUpdatedAt } = metadata;
 
+  // 如果没有编辑链接和更新时间，就不显示
   if (!editUrl && !lastUpdatedAt) {
     return null;
   }
