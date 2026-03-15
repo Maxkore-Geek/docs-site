@@ -43,51 +43,51 @@
   margin-bottom: 2rem !important;
 }
 
-/* 现代搜索框样式（统一版本） */
+/* Fumadocs风格搜索框 - 简约版 */
 .DocSearch-Container {
-  background: rgba(0, 0, 0, 0.6) !important;
-  backdrop-filter: blur(8px) !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(4px) !important;
   z-index: 2000 !important;
 }
 
 .DocSearch-Modal {
   position: fixed !important;
   left: 50% !important;
-  top: 4rem !important;
+  top: 1rem !important;
   transform: translateX(-50%) !important;
-  width: calc(100% - 1rem) !important;
-  max-width: 600px !important;
+  width: calc(100% - 2rem) !important;
+  max-width: 640px !important;
   margin: 0 auto !important;
   background: var(--ifm-background-surface-color) !important;
   border-radius: 12px !important;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
   border: 1px solid var(--ifm-color-emphasis-200) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
   overflow: hidden !important;
 }
 
 .DocSearch-SearchBar {
   padding: 0 !important;
-  border-bottom: 1px solid var(--ifm-color-emphasis-200) !important;
+  border-bottom: none !important;
 }
 
 .DocSearch-Form {
   display: flex !important;
   align-items: center !important;
-  gap: 0.75rem !important;
-  padding: 1rem !important;
+  gap: 0.5rem !important;
+  padding: 0.75rem 1rem !important;
   background: transparent !important;
 }
 
 .DocSearch-Search-Icon {
-  width: 20px !important;
-  height: 20px !important;
-  color: var(--ifm-color-emphasis-600) !important;
+  width: 18px !important;
+  height: 18px !important;
+  color: var(--ifm-color-emphasis-500) !important;
 }
 
 .DocSearch-Input {
   flex: 1 !important;
-  font-size: 1.2rem !important;
-  padding: 0 !important;
+  font-size: 1rem !important;
+  padding: 0.25rem 0 !important;
   background: transparent !important;
   color: var(--ifm-font-color-base) !important;
 }
@@ -100,43 +100,60 @@
   outline: none !important;
 }
 
+/* ESC按钮样式 */
 .DocSearch-Commands {
   display: flex !important;
+  margin: 0 !important;
+}
+
+.DocSearch-Commands li {
+  list-style: none !important;
 }
 
 .DocSearch-Commands li:first-child {
+  display: none !important;
+}
+
+.DocSearch-Commands li:last-child {
   display: flex !important;
   align-items: center !important;
 }
 
-.DocSearch-Commands li:first-child .DocSearch-Command-Key {
+.DocSearch-Commands li:last-child .DocSearch-Commands-Key {
   background: var(--ifm-color-emphasis-200) !important;
   border: 1px solid var(--ifm-color-emphasis-300) !important;
-  border-radius: 4px !important;
-  padding: 0.25rem 0.5rem !important;
+  border-radius: 6px !important;
+  padding: 0.2rem 0.5rem !important;
   font-family: monospace !important;
   font-size: 0.75rem !important;
   color: var(--ifm-color-emphasis-700) !important;
+  box-shadow: none !important;
 }
 
-.DocSearch-Commands li:last-child {
+.DocSearch-Commands li:last-child span {
   display: none !important;
 }
 
+/* 搜索结果区域 */
 .DocSearch-Dropdown {
   max-height: 460px !important;
   overflow-y: auto !important;
   padding: 0.5rem !important;
+  border-top: 1px solid var(--ifm-color-emphasis-200) !important;
 }
 
+.DocSearch-Dropdown:empty {
+  border-top: none !important;
+}
+
+/* 搜索结果项 */
 .DocSearch-Hit {
-  padding: 0 !important;
   margin: 0.25rem 0 !important;
 }
 
 .DocSearch-Hit a {
   border-radius: 6px !important;
-  padding: 0.75rem 1rem !important;
+  padding: 0.6rem 0.75rem !important;
   background: transparent !important;
   box-shadow: none !important;
   border: none !important;
@@ -147,7 +164,7 @@
 }
 
 .DocSearch-Hit-title {
-  font-size: 0.95rem !important;
+  font-size: 0.9rem !important;
   font-weight: 500 !important;
   color: var(--ifm-font-color-base) !important;
 }
@@ -158,7 +175,7 @@
 }
 
 .DocSearch-Hit-content {
-  font-size: 0.85rem !important;
+  font-size: 0.8rem !important;
   color: var(--ifm-color-emphasis-700) !important;
 }
 
@@ -167,7 +184,7 @@
   background: transparent !important;
 }
 
-/* 隐藏Algolia水印（统一版本） */
+/* 隐藏Algolia水印 */
 .DocSearch-Footer,
 .DocSearch-Logo,
 [class*="SearchResultPage"] [class*="PoweredBy"],
@@ -175,27 +192,18 @@
 [class*="SearchResultPage"] [class*="algolia"],
 .search-result-page-footer,
 .ais-PoweredBy,
-.algolia-branding {
-  display: none !important;
-}
-
-/* 隐藏"由 Algolia 提供"文字 */
+.algolia-branding,
 div:has(> a[href*="algolia.com"]) {
   display: none !important;
 }
 
 /* 深色模式适配 */
 [data-theme='dark'] .DocSearch-Modal {
-  background: var(--ifm-background-surface-color) !important;
+  background: #1e1e2e !important;
   border-color: var(--ifm-color-emphasis-300) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
 }
 
 [data-theme='dark'] .DocSearch-Hit[aria-selected="true"] a {
   background: var(--ifm-color-emphasis-200) !important;
-}
-
-[data-theme='dark'] .DocSearch-Commands li:first-child .DocSearch-Command-Key {
-  background: var(--ifm-color-emphasis-300) !important;
-  border-color: var(--ifm-color-emphasis-400) !important;
-  color: var(--ifm-color-emphasis-800) !important;
 }
