@@ -1,6 +1,29 @@
+:root {
+  --ifm-color-primary: #660874;
+  --ifm-color-primary-dark: #5c0768;
+  --ifm-color-primary-darker: #52075d;
+  --ifm-color-primary-darkest: #470651;
+  --ifm-color-primary-light: #700980;
+  --ifm-color-primary-lighter: #7a0a8c;
+  --ifm-color-primary-lightest: #840b98;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(102, 8, 116, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #b84acf;
+  --ifm-color-primary-dark: #a832bd;
+  --ifm-color-primary-darker: #982ba9;
+  --ifm-color-primary-darkest: #872595;
+  --ifm-color-primary-light: #c05ed5;
+  --ifm-color-primary-lighter: #c872db;
+  --ifm-color-primary-lightest: #d086e1;
+  --docusaurus-highlighted-code-line-bg: rgba(184, 74, 207, 0.3);
+}
+
 /* ===== Fumadocs风格搜索框 ===== */
 
-/* 搜索按钮样式 */
+/* 搜索按钮 */
 .DocSearch-Button {
   display: flex !important;
   align-items: center !important;
@@ -30,7 +53,7 @@
 }
 
 .DocSearch-Button-Placeholder {
-  display: none !important;
+  display: inline !important;
 }
 
 .DocSearch-Button-Keys {
@@ -53,7 +76,7 @@
   height: auto !important;
 }
 
-/* 搜索框打开后的模态框 */
+/* 搜索模态框 */
 .DocSearch-Container {
   background: rgba(0, 0, 0, 0.5) !important;
   backdrop-filter: blur(4px) !important;
@@ -74,7 +97,6 @@
   overflow: hidden !important;
 }
 
-/* 搜索头部 */
 .DocSearch-SearchBar {
   padding: 0 !important;
   border-bottom: 1px solid var(--ifm-color-emphasis-200) !important;
@@ -108,6 +130,10 @@
   color: var(--ifm-color-emphasis-400) !important;
 }
 
+.DocSearch-Input:focus-visible {
+  outline: none !important;
+}
+
 /* ESC按钮 */
 .DocSearch-Actions {
   display: flex !important;
@@ -136,9 +162,9 @@
   max-height: 460px !important;
   overflow-y: auto !important;
   padding: 0.5rem !important;
+  border-top: 1px solid var(--ifm-color-emphasis-200) !important;
 }
 
-/* 搜索结果项 */
 .DocSearch-Hit {
   margin: 0.25rem 0 !important;
 }
@@ -189,7 +215,7 @@ div:has(> a[href*="algolia.com"]) {
   display: none !important;
 }
 
-/* 去掉紫色边框和轮廓 */
+/* 去掉所有紫色边框 */
 .DocSearch-Button:focus,
 .DocSearch-Button:focus-visible,
 .DocSearch-Button:active,
