@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 
 export default function Home() {
   return (
-    <Layout title="Maxkore的文档站" description="代码之外，思考之上">
+    <Layout title="Maxkore的极客空间" description="代码之外，思考之上">
       {/* 紫色头部区域 */}
       <header style={{ 
         backgroundColor: '#660874',
@@ -17,7 +17,7 @@ export default function Home() {
           marginBottom: '1rem',
           fontWeight: 'bold'
         }}>
-          Maxkore的文档站
+          Maxkore的极客空间
         </h1>
         <p style={{ 
           fontSize: '1.8rem', 
