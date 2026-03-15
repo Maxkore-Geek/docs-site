@@ -24,6 +24,7 @@
     "@node-rs/jieba": "^2.0.1",
     "@slashid/docusaurus-theme-slashid": "^0.5.4",
     "@slashid/react": "^1.33.0",
+    "@docusaurus/plugin-ideal-image": "3.9.2"
     "clsx": "^2.0.0",
     "docusaurus-lunr-search": "^3.6.0",
     "dot-prop": "^10.1.0",
