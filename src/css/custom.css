@@ -207,3 +207,47 @@ div:has(> a[href*="algolia.com"]) {
 [data-theme='dark'] .DocSearch-Hit[aria-selected="true"] a {
   background: var(--ifm-color-emphasis-200) !important;
 }
+/* ===== 强制覆盖搜索框样式 ===== */
+.DocSearch-Modal {
+  position: fixed !important;
+  left: 50% !important;
+  top: 1rem !important;
+  transform: translateX(-50%) !important;
+  width: calc(100% - 2rem) !important;
+  max-width: 640px !important;
+  background: var(--ifm-background-surface-color) !important;
+  border-radius: 12px !important;
+  border: 1px solid var(--ifm-color-emphasis-200) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.DocSearch-Form {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.75rem 1rem !important;
+}
+
+.DocSearch-Search-Icon {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.DocSearch-Input {
+  font-size: 1rem !important;
+}
+
+.DocSearch-Commands li:first-child {
+  display: none !important;
+}
+
+.DocSearch-Commands li:last-child .DocSearch-Commands-Key {
+  background: var(--ifm-color-emphasis-200) !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+  border-radius: 6px !important;
+  padding: 0.2rem 0.5rem !important;
+}
+
+.DocSearch-Footer {
+  display: none !important;
+}
