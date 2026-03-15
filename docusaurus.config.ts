@@ -44,10 +44,21 @@ const config: Config = {
   ],
 
   themeConfig: {
+    // ✅ 完整的深浅色切换配置（只有两种模式）
     colorMode: {
-      defaultMode: 'light',
-      disableSwitch: false,
-      respectPrefersColorScheme: true,
+      defaultMode: 'light',      // 默认浅色
+      disableSwitch: false,      // 允许切换
+      respectPrefersColorScheme: false, // 不跟随系统，只有手动切换
+    },
+    
+    // ✅ Algolia 搜索配置
+    algolia: {
+      appId: 'ZHOZ1S2L94',
+      apiKey: '8eade69f4d82f0dacc4c2a61f139e939',
+      indexName: 'nexus.bbroot.com',
+      contextualSearch: true,
+      searchParameters: {},
+      searchPagePath: 'search',
     },
     
     navbar: {
