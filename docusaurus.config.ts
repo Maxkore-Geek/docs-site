@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Maxkore的文档站',
+  title: 'Maxkore的极客空间',
   tagline: '代码之外,思考之上.',
   favicon: 'https://github.githubassets.com/favicon.ico',
 
@@ -21,6 +21,19 @@ const config: Config = {
     locales: ['zh-Hans', 'en'],
   },
 
+  plugins: [
+  [
+    '@docusaurus/plugin-ideal-image',
+    {
+      quality: 80,
+      max: 1200,
+      min: 400,
+      steps: 3,
+      disableInDev: false,
+    },
+  ],
+],
+  
   presets: [
     [
       'classic',
