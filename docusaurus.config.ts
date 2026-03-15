@@ -51,15 +51,14 @@ const config: Config = {
       respectPrefersColorScheme: false, // 不跟随系统，只有手动切换
     },
     
-    // ✅ Algolia 搜索配置
     algolia: {
-      appId: 'ZHOZ1S2L94',
-      apiKey: '8eade69f4d82f0dacc4c2a61f139e939',
-      indexName: 'nexus.bbroot.com',
-      contextualSearch: true,
-      searchParameters: {},
-      searchPagePath: 'search',
-    },
+  appId: 'EGEY2PE1PM',
+  apiKey: 'bc69655a501bc6f2b825af8ad8daed45',
+  indexName: 'nexus.bbroot.com',
+  contextualSearch: true,
+  searchParameters: {},
+  searchPagePath: 'search',
+},
     
     navbar: {
       title: 'Maxkore的文档站',
