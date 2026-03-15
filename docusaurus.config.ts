@@ -61,7 +61,7 @@ const config: Config = {
 },
     
     navbar: {
-      title: 'Maxkore的文档站',
+      title: 'Maxkore的极客空间',
       logo: {
         alt: 'Logo',
         src: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
