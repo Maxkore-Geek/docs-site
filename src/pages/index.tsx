@@ -1,133 +1,138 @@
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
+import React from 'react';
+import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
 
-const config: Config = {
-  title: 'Maxkore的极客空间',
-  tagline: '代码之外，思考之上',
-  favicon: 'https://github.githubassets.com/favicon.ico',
+export default function Home() {
+  return (
+    <Layout title="Maxkore的文档站" description="代码之外，思考之上">
+      {/* 紫色头部区域 */}
+      <header style={{ 
+        backgroundColor: '#660874',
+        padding: '5rem 2rem',
+        textAlign: 'center',
+        color: 'white'
+      }}>
+        <h1 style={{ 
+          fontSize: '3.5rem', 
+          marginBottom: '1rem',
+          fontWeight: 'bold'
+        }}>
+          Maxkore的文档站
+        </h1>
+        <p style={{ 
+          fontSize: '1.8rem', 
+          opacity: 0.9,
+          marginBottom: '2rem'
+        }}>
+          代码之外，思考之上
+        </p>
+      </header>
 
-  url: 'https://geek.bbroot.com',
-  baseUrl: '/',
+      {/* 两个大卡片 - 居中平行 */}
+      <main style={{ 
+        padding: '4rem 2rem',
+        maxWidth: '1200px',
+        margin: '0 auto'
+      }}>
+        <div style={{ 
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '3rem',
+          flexWrap: 'wrap'
+        }}>
+          
+          {/* 技术博客卡片 */}
+          <Link 
+            to="/blog"
+            style={{ textDecoration: 'none', width: '350px' }}
+          >
+            <div 
+              style={{ 
+                padding: '3rem 2rem',
+                backgroundColor: 'white',
+                border: '2px solid #660874',
+                borderRadius: '16px',
+                boxShadow: '0 8px 20px rgba(102, 8, 116, 0.2)',
+                textAlign: 'center',
+                transition: 'transform 0.3s, box-shadow 0.3s',
+                cursor: 'pointer'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-8px)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(102, 8, 116, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 8px 20px rgba(102, 8, 116, 0.2)';
+              }}
+            >
+              <div style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>📝</div>
+              <h2 style={{ 
+                fontSize: '2.2rem', 
+                color: '#660874',
+                marginBottom: '1rem',
+                fontWeight: 'bold'
+              }}>
+                技术博客
+              </h2>
+              <p style={{ 
+                fontSize: '1.2rem', 
+                color: '#333',
+                lineHeight: '1.6'
+              }}>
+                分享编程心得与技术思考
+              </p>
+            </div>
+          </Link>
 
-  organizationName: 'Maxkore-Geek',
-  projectName: 'geek-space',
+          {/* 文档教程卡片 */}
+          <Link 
+            to="/docs"
+            style={{ textDecoration: 'none', width: '350px' }}
+          >
+            <div 
+              style={{ 
+                padding: '3rem 2rem',
+                backgroundColor: 'white',
+                border: '2px solid #660874',
+                borderRadius: '16px',
+                boxShadow: '0 8px 20px rgba(102, 8, 116, 0.2)',
+                textAlign: 'center',
+                transition: 'transform 0.3s, box-shadow 0.3s',
+                cursor: 'pointer'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-8px)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(102, 8, 116, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 8px 20px rgba(102, 8, 116, 0.2)';
+              }}
+            >
+              <div style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>📚</div>
+              <h2 style={{ 
+                fontSize: '2.2rem', 
+                color: '#660874',
+                marginBottom: '1rem',
+                fontWeight: 'bold'
+              }}>
+                文档教程
+              </h2>
+              <p style={{ 
+                fontSize: '1.2rem', 
+                color: '#333',
+                lineHeight: '1.6'
+              }}>
+                系统性的学习指南
+              </p>
+            </div>
+          </Link>
+        </div>
 
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
-
-  i18n: {
-    defaultLocale: 'zh-Hans',
-    locales: ['zh-Hans', 'en'],
-  },
-
-  presets: [
-    [
-      'classic',
-      {
-        docs: {
-          sidebarPath: './sidebars.ts',
-          path: 'help',
-          routeBasePath: 'help',
-          breadcrumbs: true,
-        },
-        blog: {
-          path: 'geek',
-          routeBasePath: 'geek',
-          blogSidebarTitle: '近期极客',
-          blogSidebarCount: 5,
-          showReadingTime: true,
-        },
-        theme: {
-          customCss: [
-            './src/css/custom.css',
-            require.resolve("@slashid/react/style.css"),
-          ],
-        },
-      },
-    ],
-  ],
-
-  // ✅ 插件列表
-  plugins: [
-    [
-      '@docusaurus/plugin-content-blog',
-      {
-        id: 'wiki',
-        path: 'wiki',
-        routeBasePath: 'wiki',
-        blogSidebarTitle: '维基知识库',
-        blogSidebarCount: 10,
-        showReadingTime: true,
-        postsPerPage: 20,
-      },
-    ],
-    [
-      '@orama/plugin-docusaurus-v3',
-      {
-        searchResultLimits: 10,
-        searchResultContextMaxLength: 50,
-        translations: {
-          search_placeholder: '搜索极客空间...',
-        },
-      },
-    ],
-    './src/plugins/dashboard',
-  ],
-
-  // ✅ 主题配置（包含登录认证）
-  themeConfig: {
-    // 颜色模式
-    colorMode: {
-      defaultMode: 'light',
-      disableSwitch: false,
-      respectPrefersColorScheme: false,
-    },
-    
-    // ✅ SlashID 登录认证配置
-    slashID: {
-      orgID: "069b1618-f70f-7671-8904-de40f5af6267",
-      forceLogin: false,
-      privatePaths: [
-        {
-          path: "/dashboard/**",        // 控制台需要登录
-          groups: ["member"],
-        },
-        {
-          path: "/wiki/private/**",      // 部分维基需要登录
-          groups: ["member"],
-        },
-      ],
-      formConfiguration: {
-        factors: [{ method: "email_link" }, { method: "password" }],
-        text: {
-          "initial.title": "登录 Maxkore 极客空间",
-        },
-      },
-    },
-    
-    // 导航栏
-    navbar: {
-      title: 'Maxkore的极客空间',
-      logo: {
-        alt: 'Logo',
-        src: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
-      },
-      items: [
-        { to: '/geek', label: '极客', position: 'left' },
-        { to: '/help', label: '帮助', position: 'left' },
-        { to: '/wiki', label: '维基', position: 'left' },
-        { to: '/dashboard', label: '控制台', position: 'left' },
-      ],
-    },
-    
-    prism: {
-      theme: require('prism-react-renderer').themes.github,
-      darkTheme: require('prism-react-renderer').themes.dracula,
-    },
-  },
-
-  // ✅ 添加 SlashID 主题
-  themes: ["@slashid/docusaurus-theme-slashid"],
-};
-
-export default config;
+        {/* 底部留白 */}
+        <div style={{ height: '4rem' }} />
+      </main>
+    </Layout>
+  );
+}
