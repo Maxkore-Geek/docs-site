@@ -1,5 +1,5 @@
 {
-  "name": "tmp-site",
+  "name": "docs-site",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -11,31 +11,20 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
-    "@docsearch/css": "^3.9.0",
-    "@docsearch/js": "^3.9.0",
     "@docusaurus/core": "3.9.2",
     "@docusaurus/preset-classic": "3.9.2",
-    "@docusaurus/theme-search-algolia": "^3.9.2",
     "@mdx-js/react": "^3.0.0",
-    "@node-rs/jieba": "^2.0.1",
-    "@slashid/docusaurus-theme-slashid": "^0.5.4",
-    "@slashid/react": "^1.33.0",
     "clsx": "^2.0.0",
-    "docusaurus-lunr-search": "^3.6.0",
-    "dot-prop": "^10.1.0",
     "prism-react-renderer": "^2.3.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.9.2",
-    "@docusaurus/tsconfig": "3.9.2",
-    "@docusaurus/types": "3.9.2",
-    "typescript": "~5.6.2"
+    "@docusaurus/types": "3.9.2"
   },
   "browserslist": {
     "production": [
@@ -48,8 +37,5 @@
       "last 3 firefox version",
       "last 5 safari version"
     ]
-  },
-  "engines": {
-    "node": ">=20.0"
   }
 }
