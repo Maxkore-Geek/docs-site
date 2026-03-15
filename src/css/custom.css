@@ -1,3 +1,7 @@
+/* 强制使用我们的样式 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* 你的现有样式保持不变 */
 :root {
   --ifm-color-primary: #660874;
   --ifm-color-primary-dark: #5c0768;
@@ -206,4 +210,48 @@ div:has(> a[href*="algolia.com"]) {
 
 [data-theme='dark'] .DocSearch-Hit[aria-selected="true"] a {
   background: var(--ifm-color-emphasis-200) !important;
+}
+/* ===== 终极覆盖 ===== */
+html body .DocSearch-Modal.DocSearch-Modal {
+  position: fixed !important;
+  left: 50% !important;
+  top: 1rem !important;
+  transform: translateX(-50%) !important;
+  width: calc(100% - 2rem) !important;
+  max-width: 640px !important;
+  background: var(--ifm-background-surface-color) !important;
+  border-radius: 12px !important;
+  border: 1px solid var(--ifm-color-emphasis-200) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+html body .DocSearch-Form.DocSearch-Form {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.75rem 1rem !important;
+}
+
+html body .DocSearch-Search-Icon.DocSearch-Search-Icon {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+html body .DocSearch-Input.DocSearch-Input {
+  font-size: 1rem !important;
+}
+
+html body .DocSearch-Commands li:first-child {
+  display: none !important;
+}
+
+html body .DocSearch-Commands li:last-child .DocSearch-Commands-Key {
+  background: var(--ifm-color-emphasis-200) !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+  border-radius: 6px !important;
+  padding: 0.2rem 0.5rem !important;
+}
+
+html body .DocSearch-Footer.DocSearch-Footer {
+  display: none !important;
 }
