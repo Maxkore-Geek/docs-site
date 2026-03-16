@@ -3,7 +3,15 @@ import SearchBar from '@theme-original/SearchBar';
 
 export default function SearchBarWrapper(props) {
   useEffect(() => {
-    // 注入自定义样式到 head
+    // 1. 修改 placeholder
+    const modifyPlaceholder = () => {
+      const input = document.querySelector('.DocSearch-Input');
+      if (input) {
+        input.placeholder = 'Search';
+      }
+    };
+
+    // 2. 注入自定义样式
     const style = document.createElement('style');
     style.textContent = `
       /* 强制覆盖 Algolia 搜索框样式 */
@@ -73,8 +81,19 @@ export default function SearchBarWrapper(props) {
     `;
     document.head.appendChild(style);
     
+    // 3. 延迟执行确保 DOM 已加载
+    const timeout = setTimeout(modifyPlaceholder, 500);
+    
+    // 4. 监听搜索框出现（因为 Algolia 可能会动态创建）
+    const observer = new MutationObserver(() => {
+      modifyPlaceholder();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    
     return () => {
       document.head.removeChild(style);
+      clearTimeout(timeout);
+      observer.disconnect();
     };
   }, []);
 
