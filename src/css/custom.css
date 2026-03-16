@@ -159,25 +159,6 @@
 .DocSearch-Footer,
 .DocSearch-Logo,
 [class*="PoweredBy"],
-[class*="SearchResultPage"] [class*="algolia"] {
-  display: none !important;
-}
-
-/* 去掉所有紫色边框 */
-*:focus {
-  outline: none !important;
-}
-
-/* 深色模式 */
-[data-theme='dark'] .DocSearch-Modal {
-  background: #1e1e2e !important;
-  border-color: var(--ifm-color-emphasis-300) !important;
-}
-
-/* 隐藏水印 */
-.DocSearch-Footer,
-.DocSearch-Logo,
-[class*="PoweredBy"],
 [class*="SearchResultPage"] [class*="algolia"],
 .ais-PoweredBy,
 .algolia-branding {
@@ -192,4 +173,5 @@
 /* 深色模式 */
 [data-theme='dark'] .DocSearch-Modal {
   background: #1e1e2e !important;
+  border-color: var(--ifm-color-emphasis-300) !important;
 }
