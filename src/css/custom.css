@@ -21,7 +21,7 @@
   --docusaurus-highlighted-code-line-bg: rgba(184, 74, 207, 0.3);
 }
 
-/* ===== 点开前的搜索按钮 ===== */
+/* ===== 搜索按钮（你给的样子）===== */
 .DocSearch-Button {
   display: inline-flex !important;
   align-items: center !important;
@@ -44,9 +44,10 @@
 }
 
 .DocSearch-Button .DocSearch-Search-Icon {
-  width: 1rem !important;
-  height: 1rem !important;
+  width: 1.25rem !important;
+  height: 1.25rem !important;
   margin-right: 0 !important;
+  stroke-width: 1.4 !important;
 }
 
 .DocSearch-Button-Placeholder {
@@ -75,7 +76,14 @@
   line-height: 1.2 !important;
 }
 
-/* ===== 点开后的搜索模态框 ===== */
+/* 确保 Ctrl 显示正确 */
+.DocSearch-Button-Key:first-child svg {
+  width: 15px !important;
+  height: 15px !important;
+  display: block !important;
+}
+
+/* ===== 点开后的模态框（完全隐藏乱七八糟的东西）===== */
 .DocSearch-Container {
   background: rgba(0, 0, 0, 0.5) !important;
   backdrop-filter: blur(4px) !important;
@@ -108,7 +116,7 @@
   background: transparent !important;
 }
 
-.DocSearch-Search-Icon {
+.DocSearch-MagnifierLabel svg {
   width: 1.25rem !important;
   height: 1.25rem !important;
   color: var(--ifm-color-emphasis-500) !important;
@@ -131,6 +139,14 @@
   outline: none !important;
 }
 
+/* 隐藏加载指示器、清除按钮等乱七八糟的东西 */
+.DocSearch-LoadingIndicator,
+.DocSearch-Reset,
+.DocSearch-Cancel {
+  display: none !important;
+}
+
+/* ESC 按钮 */
 .DocSearch-Close {
   display: inline-flex !important;
   align-items: center !important;
@@ -150,18 +166,18 @@
   background: var(--ifm-color-emphasis-100) !important;
 }
 
-/* 未输入时不显示结果区域 */
-.DocSearch-Dropdown {
-  display: none !important;
-}
-
-/* 隐藏所有水印 */
+/* 隐藏水印和底部键盘提示 */
 .DocSearch-Footer,
 .DocSearch-Logo,
 [class*="PoweredBy"],
-[class*="SearchResultPage"] [class*="algolia"],
-.ais-PoweredBy,
-.algolia-branding {
+.DocSearch-Commands,
+.DocSearch-Commands * {
+  display: none !important;
+}
+
+/* 无搜索结果时的占位 */
+.DocSearch-StartScreen,
+.DocSearch-Help {
   display: none !important;
 }
 
