@@ -171,3 +171,23 @@
   background: #1e1e2e !important;
   border-color: var(--ifm-color-emphasis-300) !important;
 }
+/* ===== 搜索页专用水印隐藏 ===== */
+[class*="SearchResultPage"] [class*="PoweredBy"],
+[class*="SearchResultPage"] footer,
+[class*="SearchResultPage"] [class*="algolia"],
+[class*="ais-PoweredBy"],
+[class*="algolia-branding"] {
+  display: none !important;
+}
+
+/* 搜索结果页底部 */
+.search-result-page-footer,
+.ais-PoweredBy,
+.algolia-branding {
+  display: none !important;
+}
+
+/* 任何包含 algolia 链接的容器 */
+div:has(> a[href*="algolia.com"]) {
+  display: none !important;
+}
