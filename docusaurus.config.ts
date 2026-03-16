@@ -30,6 +30,9 @@ const config: Config = {
           path: 'docs',
           routeBasePath: 'docs',
           breadcrumbs: true,
+          editUrl: 'https://github.com/Maxkore-Geek/docs-site/edit/main/',
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
         },
         blog: {
           showReadingTime: true,
