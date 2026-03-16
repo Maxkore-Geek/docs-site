@@ -38,6 +38,7 @@ const config: Config = {
           showReadingTime: true,
           path: 'blog',
           routeBasePath: 'blog',
+          editUrl: 'https://github.com/Maxkore-Geek/docs-site/edit/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
