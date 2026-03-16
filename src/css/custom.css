@@ -108,8 +108,22 @@
   color: var(--ifm-font-color-base) !important;
 }
 
+/* ===== 修改搜索框占位文字 ===== */
+.DocSearch-Input {
+  position: relative !important;
+}
+
 .DocSearch-Input::placeholder {
+  color: transparent !important;  /* 隐藏原来的文字 */
+}
+
+.DocSearch-Input:not(:focus)::before {
+  content: "Search" !important;
+  position: absolute !important;
+  left: 2.5rem !important;  /* 调整位置 */
   color: var(--ifm-color-emphasis-400) !important;
+  pointer-events: none !important;
+  font-size: 1.125rem !important;
 }
 
 .DocSearch-Input:focus {
