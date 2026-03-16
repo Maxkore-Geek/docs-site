@@ -73,16 +73,6 @@ const config: Config = {
       items: [
         { to: '/docs', label: '文档', position: 'left' },
         { to: '/blog', label: '博客', position: 'left' },
-        {
-         type: 'localeDropdown',
-          position: 'right',
-          dropdownItemsAfter: [
-          {
-              to: 'https://github.com/facebook/docusaurus/issues/3526',
-              label: 'Help Us Translate',
-          },
-        ],
-        },
       ],
     },
     
