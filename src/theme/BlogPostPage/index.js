@@ -12,8 +12,6 @@ import BlogPostPageMetadata from '@theme/BlogPostPage/Metadata';
 import BlogPostPageStructuredData from '@theme/BlogPostPage/StructuredData';
 import TOC from '@theme/TOC';
 import ContentVisibility from '@theme/ContentVisibility';
-// ✅ 加上这一行
-import GiscusComments from '@site/src/components/GiscusComments';
 
 function BlogPostPageContent({sidebar, children}) {
   const {metadata, toc} = useBlogPost();
@@ -38,8 +36,6 @@ function BlogPostPageContent({sidebar, children}) {
       <ContentVisibility metadata={metadata} />
 
       <BlogPostItem>{children}</BlogPostItem>
-
-      <GiscusComments />
 
       {(nextItem || prevItem) && (
         <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
