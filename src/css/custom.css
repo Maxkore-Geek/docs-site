@@ -114,7 +114,8 @@
 }
 
 .DocSearch-Input::placeholder {
-  color: transparent !important;  /* 隐藏原来的文字 */
+  color: var(--ifm-color-emphasis-400) !important;
+  content: "Search" !important;
 }
 
 .DocSearch-Input:not(:focus)::before {
