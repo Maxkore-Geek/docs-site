@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import Translate from '@docusaurus/Translate';  // ✅ 新增
 
 export default function Home() {
   return (
@@ -17,14 +18,14 @@ export default function Home() {
           marginBottom: '1rem',
           fontWeight: 'bold'
         }}>
-          Maxkore的极客空间
+          <Translate>Maxkore的极客空间</Translate>  {/* ✅ 改 */}
         </h1>
         <p style={{ 
           fontSize: '1.8rem', 
           opacity: 0.9,
           marginBottom: '2rem'
         }}>
-          代码之外，思考之上
+          <Translate>代码之外，思考之上</Translate>  {/* ✅ 改 */}
         </p>
       </header>
 
@@ -73,14 +74,14 @@ export default function Home() {
                 marginBottom: '1rem',
                 fontWeight: 'bold'
               }}>
-                技术博客
+                <Translate>技术博客</Translate>  {/* ✅ 改 */}
               </h2>
               <p style={{ 
                 fontSize: '1.2rem', 
                 color: '#333',
                 lineHeight: '1.6'
               }}>
-                分享编程心得与技术思考
+                <Translate>分享编程心得与技术思考</Translate>  {/* ✅ 改 */}
               </p>
             </div>
           </Link>
@@ -117,14 +118,14 @@ export default function Home() {
                 marginBottom: '1rem',
                 fontWeight: 'bold'
               }}>
-                文档教程
+                <Translate>文档教程</Translate>  {/* ✅ 改 */}
               </h2>
               <p style={{ 
                 fontSize: '1.2rem', 
                 color: '#333',
                 lineHeight: '1.6'
               }}>
-                系统性的学习指南
+                <Translate>系统性的学习指南</Translate>  {/* ✅ 改 */}
               </p>
             </div>
           </Link>
