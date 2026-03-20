@@ -18,14 +18,14 @@ export default function Home() {
           marginBottom: '1rem',
           fontWeight: 'bold'
         }}>
-          <Translate>Maxkore的极客空间</Translate>  {/* ✅ 改 */}
+          <Translate>Maxkore的极客空间</Translate>
         </h1>
         <p style={{ 
           fontSize: '1.8rem', 
           opacity: 0.9,
           marginBottom: '2rem'
         }}>
-          <Translate>代码之外，思考之上</Translate>  {/* ✅ 改 */}
+          <Translate>代码之外，思考之上</Translate>
         </p>
       </header>
 
@@ -74,14 +74,14 @@ export default function Home() {
                 marginBottom: '1rem',
                 fontWeight: 'bold'
               }}>
-                <Translate>技术博客</Translate>  {/* ✅ 改 */}
+                <Translate>技术博客</Translate>
               </h2>
               <p style={{ 
                 fontSize: '1.2rem', 
                 color: '#333',
                 lineHeight: '1.6'
               }}>
-                <Translate>分享编程心得与技术思考</Translate>  {/* ✅ 改 */}
+                <Translate>分享编程心得与技术思考</Translate>
               </p>
             </div>
           </Link>
@@ -118,14 +118,14 @@ export default function Home() {
                 marginBottom: '1rem',
                 fontWeight: 'bold'
               }}>
-                <Translate>文档教程</Translate>  {/* ✅ 改 */}
+                <Translate>文档教程</Translate>
               </h2>
               <p style={{ 
                 fontSize: '1.2rem', 
                 color: '#333',
                 lineHeight: '1.6'
               }}>
-                <Translate>系统性的学习指南</Translate>  {/* ✅ 改 */}
+                <Translate>系统性的学习指南</Translate>
               </p>
             </div>
           </Link>
