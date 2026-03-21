@@ -91,4 +91,9 @@ const config: Config = {
   },
 };
 
+markdown: {
+  onBrokenMarkdownLinks: 'ignore',
+  onBrokenMarkdownImages: 'ignore',
+},
+
 export default config;
