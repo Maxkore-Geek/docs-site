@@ -25,9 +25,11 @@ const config: Config = {
   },
 },
 
-  markdown: {
-  onBrokenMarkdownLinks: 'ignore',
-  onBrokenMarkdownImages: 'ignore',
+markdown: {
+  hooks: {
+    onBrokenMarkdownLinks: 'ignore',
+    onBrokenMarkdownImages: 'ignore',
+  },
 },
   
   presets: [
