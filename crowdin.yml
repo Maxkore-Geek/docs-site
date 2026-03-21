@@ -1,10 +1,11 @@
-project_id: nexus-site
+project_identifier: nexus-site
 api_token_env: CROWDIN_PERSONAL_TOKEN
+base_url: https://api.crowdin.com
 preserve_hierarchy: true
 files:
   - source: /docs/**/*
-    translation: /i18n/en/docusaurus-plugin-content-docs/current/**/%original_file_name%
+    translation: /i18n/%locale%/docusaurus-plugin-content-docs/current/**/%original_file_name%
   - source: /blog/**/*
-    translation: /i18n/en/docusaurus-plugin-content-blog/**/%original_file_name%
+    translation: /i18n/%locale%/docusaurus-plugin-content-blog/**/%original_file_name%
   - source: /i18n/zh-Hans/**/*
-    translation: /i18n/en/**/%original_file_name%
+    translation: /i18n/%locale%/**/%original_file_name%
