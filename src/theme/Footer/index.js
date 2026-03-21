@@ -41,7 +41,7 @@ export default function FooterWrapper(props) {
           }}
         >
           <span>✏️</span>
-          <span>新建文章</span>
+          <span>新建文档</span>
         </Link>
         
         <Link
