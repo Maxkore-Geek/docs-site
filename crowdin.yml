@@ -2,12 +2,9 @@ project_id: nexus-site
 api_token_env: CROWDIN_PERSONAL_TOKEN
 preserve_hierarchy: true
 files:
-  # 文档源文件
   - source: /docs/**/*
-    translation: /i18n/zh-CN/docusaurus-plugin-content-docs/current/**/%original_file_name%
-  # 博客源文件  
+    translation: /i18n/en/docusaurus-plugin-content-docs/current/**/%original_file_name%
   - source: /blog/**/*
-    translation: /i18n/zh-CN/docusaurus-plugin-content-blog/**/%original_file_name%
-  # React 组件文字翻译
-  - source: /i18n/en/**/*
-    translation: /i18n/zh-CN/**/%original_file_name%
+    translation: /i18n/en/docusaurus-plugin-content-blog/**/%original_file_name%
+  - source: /i18n/zh-Hans/**/*
+    translation: /i18n/en/**/%original_file_name%
