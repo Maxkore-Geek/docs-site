@@ -24,6 +24,11 @@ const config: Config = {
     en: { label: 'English' },
   },
 },
+
+  markdown: {
+  onBrokenMarkdownLinks: 'ignore',
+  onBrokenMarkdownImages: 'ignore',
+},
   
   presets: [
     [
@@ -90,10 +95,5 @@ const config: Config = {
     },
   },
 };
-
-markdown: {
-  onBrokenMarkdownLinks: 'ignore',
-  onBrokenMarkdownImages: 'ignore',
-},
 
 export default config;
