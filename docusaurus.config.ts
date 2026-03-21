@@ -17,9 +17,13 @@ const config: Config = {
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
-    defaultLocale: 'zh-Hans',
-    locales: ['zh-Hans', 'en'],
+  defaultLocale: 'zh-Hans',
+  locales: ['zh-Hans', 'en'],
+  localeConfigs: {
+    'zh-Hans': { label: '中文' },
+    en: { label: 'English' },
   },
+},
   
   presets: [
     [
