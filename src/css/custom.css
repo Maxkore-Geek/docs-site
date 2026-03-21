@@ -218,3 +218,7 @@ div:has(> a[href*="algolia.com"]) {
   padding-left: 2rem !important;   /* 左边距保留 */
   padding-right: 0 !important;     /* 右边距去掉 */
 }
+/* 去掉搜索框下方的分隔线 */
+.DocSearch-SearchBar {
+  border-bottom: none !important;
+}
