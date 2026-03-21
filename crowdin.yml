@@ -7,5 +7,5 @@ files:
     translation: /i18n/%locale%/docusaurus-plugin-content-docs/current/**/%original_file_name%
   - source: /blog/**/*
     translation: /i18n/%locale%/docusaurus-plugin-content-blog/**/%original_file_name%
-  - source: /i18n/zh-Hans/**/*
-    translation: /i18n/%locale%/**/%original_file_name%
+  # - source: /i18n/zh-Hans/**/*
+  #   translation: /i18n/%locale%/**/%original_file_name%
