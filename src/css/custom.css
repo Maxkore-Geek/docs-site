@@ -236,3 +236,7 @@ div:has(> a[href*="algolia.com"]) {
 [class*="giscus"] [class*="powered-by"] {
   display: none !important;
 }
+/* 隐藏原英文 "See all xx results" */
+.DocSearch-HitsFooter {
+  display: none !important;
+}
