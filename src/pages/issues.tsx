@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
-import { useColorMode } from '@docusaurus/theme-common/internal';
 
 // GitHub 仓库信息
 const REPO_OWNER = 'Maxkore-Geek';
 const REPO_NAME = 'docs-site';
 
 export default function Issues() {
-  const { colorMode } = useColorMode();
   const [issues, setIssues] = useState([]);
   const [loading, setLoading] = useState(true);
   const [newIssueTitle, setNewIssueTitle] = useState('');
@@ -131,14 +129,14 @@ export default function Issues() {
         {/* 新建 Issue 表单 */}
         {showForm && (
           <div style={{
-            background: colorMode === 'dark' ? '#1e1e2e' : '#f8f9fa',
+            background: 'var(--ifm-background-surface-color)',
             padding: '1.5rem',
             borderRadius: '16px',
             marginBottom: '2rem',
-            border: `1px solid var(--ifm-color-emphasis-200)`,
+            border: '1px solid var(--ifm-color-emphasis-200)',
             boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
           }}>
-            <h3 style={{ marginBottom: '1rem', color: 'var(--ifm-color-primary)' }}>✨ 新建 Issue</h3>
+            <h3 style={{ marginBottom: '1rem', color: '#660874' }}>✨ 新建 Issue</h3>
             <input
               type="text"
               placeholder="标题"
@@ -148,7 +146,7 @@ export default function Issues() {
                 width: '100%',
                 padding: '0.75rem',
                 marginBottom: '1rem',
-                border: `1px solid var(--ifm-color-emphasis-200)`,
+                border: '1px solid var(--ifm-color-emphasis-200)',
                 borderRadius: '8px',
                 backgroundColor: 'var(--ifm-background-surface-color)',
                 color: 'var(--ifm-font-color-base)',
@@ -164,7 +162,7 @@ export default function Issues() {
                 width: '100%',
                 padding: '0.75rem',
                 marginBottom: '1rem',
-                border: `1px solid var(--ifm-color-emphasis-200)`,
+                border: '1px solid var(--ifm-color-emphasis-200)',
                 borderRadius: '8px',
                 backgroundColor: 'var(--ifm-background-surface-color)',
                 color: 'var(--ifm-font-color-base)',
@@ -197,7 +195,7 @@ export default function Issues() {
               提交 Issue
             </button>
             <p style={{ fontSize: '0.8rem', color: 'var(--ifm-color-emphasis-500)', marginTop: '1rem' }}>
-              需要 <a href="#" onClick={loginWithGitHub} style={{ color: 'var(--ifm-color-primary)' }}>登录 GitHub</a> 才能创建 Issue
+              需要 <a href="#" onClick={loginWithGitHub} style={{ color: '#660874' }}>登录 GitHub</a> 才能创建 Issue
             </p>
           </div>
         )}
@@ -248,7 +246,7 @@ export default function Issues() {
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-2px)';
                   e.currentTarget.style.boxShadow = '0 4px 12px rgba(102, 8, 116, 0.15)';
-                  e.currentTarget.style.borderColor = 'var(--ifm-color-primary)';
+                  e.currentTarget.style.borderColor = '#660874';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
@@ -258,18 +256,17 @@ export default function Issues() {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
                     <span style={{
                       padding: '0.2rem 0.6rem',
-                      background: colorMode === 'dark' ? '#2d2d3a' : '#e9ecef',
+                      background: 'var(--ifm-color-emphasis-100)',
                       borderRadius: '20px',
                       fontSize: '0.7rem',
-                      fontWeight: '500',
-                      color: 'var(--ifm-color-emphasis-700)'
+                      fontWeight: '500'
                     }}>
                       #{issue.number}
                     </span>
                     <a href={issue.html_url} target="_blank" rel="noopener noreferrer" style={{
                       fontWeight: '600',
                       fontSize: '1rem',
-                      color: 'var(--ifm-color-primary)',
+                      color: '#660874',
                       textDecoration: 'none',
                       flex: 1
                     }}>
