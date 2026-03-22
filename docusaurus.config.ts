@@ -75,6 +75,8 @@ markdown: {
       items: [
         { to: '/docs', label: '文档', position: 'left' },
         { to: '/blog', label: '博客', position: 'left' },
+	{ to: '/chat', label: '聊天室', position: 'left' },
+  	{ to: '/issues', label: '讨论区', position: 'left' },
       ],
     },
     

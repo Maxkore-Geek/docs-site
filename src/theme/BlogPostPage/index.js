@@ -1,3 +1,4 @@
+import Comments from '@site/src/components/Comments';
 import React from 'react';
 import clsx from 'clsx';
 import {HtmlClassNameProvider, ThemeClassNames} from '@docusaurus/theme-common';
@@ -36,6 +37,9 @@ function BlogPostPageContent({sidebar, children}) {
       <ContentVisibility metadata={metadata} />
 
       <BlogPostItem>{children}</BlogPostItem>
+
+      {/* ✅ 添加评论区 */}
+      <Comments mapping="pathname" />
 
       {(nextItem || prevItem) && (
         <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
