@@ -222,3 +222,13 @@ div:has(> a[href*="algolia.com"]) {
 .DocSearch-SearchBar {
   border-bottom: none !important;
 }
+/* 隐藏 Giscus 水印 */
+.giscus-frame {
+  filter: none !important;
+}
+
+/* 隐藏"由 giscus 提供支持"文字 */
+.giscus-footer,
+.giscus-footer a {
+  display: none !important;
+}
