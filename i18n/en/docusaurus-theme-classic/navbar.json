@@ -10,5 +10,9 @@
   "item.label.博客": {
     "message": "Blog",
     "description": "Navbar item with label 博客"
+  },
+  "logo.alt": {
+    "message": "Logo",
+    "description": "The alt text of navbar logo"
   }
 }
