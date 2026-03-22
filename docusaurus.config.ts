@@ -75,10 +75,6 @@ markdown: {
       items: [
         { to: '/docs', label: '文档', position: 'left' },
         { to: '/blog', label: '博客', position: 'left' },
-        {
-          type: 'localeDropdown',
-          position: 'right',
-        },
       ],
     },
     
