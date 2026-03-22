@@ -224,11 +224,15 @@ div:has(> a[href*="algolia.com"]) {
 }
 /* 隐藏 Giscus 水印 */
 .giscus-frame {
-  filter: none !important;
+  border: none !important;
 }
 
-/* 隐藏"由 giscus 提供支持"文字 */
-.giscus-footer,
-.giscus-footer a {
+.giscus .giscus-frame {
+  height: auto !important;
+}
+
+/* 隐藏“由 giscus 提供支持”文字 */
+.giscus-frame + div,
+[class*="giscus"] [class*="powered-by"] {
   display: none !important;
 }
