@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
-import { useColorMode } from '@docusaurus/theme-common';
+import { useColorMode } from '@docusaurus/theme-common/internal';
 
 // GitHub 仓库信息
 const REPO_OWNER = 'Maxkore-Geek';
