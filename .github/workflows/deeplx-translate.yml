@@ -1,0 +1,36 @@
+name: Auto Translate with DeepLX
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**/*.md'
+      - 'blog/**/*.md'
+  workflow_dispatch:
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      
+      - name: Install dependencies
+        run: npm install axios
+      
+      - name: Translate files
+        run: node .github/scripts/deeplx-translate.js
+      
+      - name: Commit translations
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add i18n/en/
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: auto-translate with DeepLX"
+          git push
