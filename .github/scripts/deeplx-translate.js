@@ -9,7 +9,7 @@ const TARGET_CONFIGS = [
 ];
 
 // DeepLX API 端点
-const DEEPLX_URL = 'https://deeplx.owo.net/translate';
+const DEEPLX_URL = 'https://api.deeplx.org/translate';
 
 // 检测语言（简单的中文检测）
 async function detectLanguage(text) {
