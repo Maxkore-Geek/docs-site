@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
+import { useColorMode } from '@docusaurus/theme-common';
 
 // GitHub 仓库信息
 const REPO_OWNER = 'Maxkore-Geek';
 const REPO_NAME = 'docs-site';
 
 export default function Issues() {
+  const { colorMode } = useColorMode();
   const [issues, setIssues] = useState([]);
   const [loading, setLoading] = useState(true);
   const [newIssueTitle, setNewIssueTitle] = useState('');
@@ -66,33 +68,77 @@ export default function Issues() {
 
   return (
     <Layout title="Issue 讨论区" description="GitHub Issues 讨论区">
-      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-          <h1>📋 Issue 讨论区</h1>
+      <div style={{
+        maxWidth: '1000px',
+        margin: '0 auto',
+        padding: '2rem 1.5rem',
+      }}>
+        {/* 头部区域 */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '2rem',
+          flexWrap: 'wrap',
+          gap: '1rem'
+        }}>
+          <div>
+            <h1 style={{
+              fontSize: '2.2rem',
+              marginBottom: '0.25rem',
+              background: 'linear-gradient(135deg, #660874 0%, #b84acf 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}>
+              📋 Issue 讨论区
+            </h1>
+            <p style={{ color: 'var(--ifm-color-emphasis-600)', margin: 0 }}>
+              参与讨论、反馈问题、提出建议
+            </p>
+          </div>
           <button
             onClick={() => setShowForm(!showForm)}
             style={{
-              padding: '0.5rem 1rem',
-              backgroundColor: '#660874',
+              padding: '0.6rem 1.2rem',
+              backgroundColor: showForm ? '#6c757d' : '#660874',
               color: 'white',
               border: 'none',
-              borderRadius: '6px',
-              cursor: 'pointer'
+              borderRadius: '30px',
+              cursor: 'pointer',
+              fontSize: '0.9rem',
+              fontWeight: '500',
+              transition: 'all 0.2s ease',
+              boxShadow: showForm ? 'none' : '0 2px 8px rgba(102, 8, 116, 0.3)'
+            }}
+            onMouseEnter={(e) => {
+              if (!showForm) {
+                e.currentTarget.style.backgroundColor = '#b84acf';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!showForm) {
+                e.currentTarget.style.backgroundColor = '#660874';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }
             }}
           >
-            {showForm ? '取消' : '+ 新建 Issue'}
+            {showForm ? '✖ 取消' : '+ 新建 Issue'}
           </button>
         </div>
 
+        {/* 新建 Issue 表单 */}
         {showForm && (
           <div style={{
-            background: '#f6f8fa',
-            padding: '1rem',
-            borderRadius: '8px',
+            background: colorMode === 'dark' ? '#1e1e2e' : '#f8f9fa',
+            padding: '1.5rem',
+            borderRadius: '16px',
             marginBottom: '2rem',
-            border: '1px solid #e1e4e8'
+            border: `1px solid var(--ifm-color-emphasis-200)`,
+            boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
           }}>
-            <h3>新建 Issue</h3>
+            <h3 style={{ marginBottom: '1rem', color: 'var(--ifm-color-primary)' }}>✨ 新建 Issue</h3>
             <input
               type="text"
               placeholder="标题"
@@ -100,10 +146,13 @@ export default function Issues() {
               onChange={(e) => setNewIssueTitle(e.target.value)}
               style={{
                 width: '100%',
-                padding: '0.5rem',
+                padding: '0.75rem',
                 marginBottom: '1rem',
-                border: '1px solid #e1e4e8',
-                borderRadius: '4px'
+                border: `1px solid var(--ifm-color-emphasis-200)`,
+                borderRadius: '8px',
+                backgroundColor: 'var(--ifm-background-surface-color)',
+                color: 'var(--ifm-font-color-base)',
+                fontSize: '0.95rem'
               }}
             />
             <textarea
@@ -113,68 +162,142 @@ export default function Issues() {
               rows={5}
               style={{
                 width: '100%',
-                padding: '0.5rem',
+                padding: '0.75rem',
                 marginBottom: '1rem',
-                border: '1px solid #e1e4e8',
-                borderRadius: '4px'
+                border: `1px solid var(--ifm-color-emphasis-200)`,
+                borderRadius: '8px',
+                backgroundColor: 'var(--ifm-background-surface-color)',
+                color: 'var(--ifm-font-color-base)',
+                fontSize: '0.95rem',
+                fontFamily: 'monospace'
               }}
             />
             <button
               onClick={createIssue}
               style={{
-                padding: '0.5rem 1rem',
+                padding: '0.6rem 1.2rem',
                 backgroundColor: '#2cbe4e',
                 color: 'white',
                 border: 'none',
-                borderRadius: '4px',
-                cursor: 'pointer'
+                borderRadius: '30px',
+                cursor: 'pointer',
+                fontSize: '0.9rem',
+                fontWeight: '500',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#3dd068';
+                e.currentTarget.style.transform = 'translateY(-1px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#2cbe4e';
+                e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
               提交 Issue
             </button>
-            <p style={{ fontSize: '0.8rem', color: '#6a737d', marginTop: '0.5rem' }}>
-              需要 <a href="#" onClick={loginWithGitHub}>登录 GitHub</a> 才能创建 Issue
+            <p style={{ fontSize: '0.8rem', color: 'var(--ifm-color-emphasis-500)', marginTop: '1rem' }}>
+              需要 <a href="#" onClick={loginWithGitHub} style={{ color: 'var(--ifm-color-primary)' }}>登录 GitHub</a> 才能创建 Issue
             </p>
           </div>
         )}
 
+        {/* Issue 列表 */}
         {loading ? (
-          <p>加载中...</p>
+          <div style={{ textAlign: 'center', padding: '3rem' }}>
+            <div style={{
+              width: '40px',
+              height: '40px',
+              border: '3px solid var(--ifm-color-emphasis-200)',
+              borderTopColor: '#660874',
+              borderRadius: '50%',
+              animation: 'spin 1s linear infinite',
+              margin: '0 auto 1rem'
+            }} />
+            <p>加载讨论中...</p>
+            <style>{`
+              @keyframes spin {
+                to { transform: rotate(360deg); }
+              }
+            `}</style>
+          </div>
         ) : (
           <div>
             {issues.length === 0 ? (
-              <p>暂无 Issue，来创建第一个吧！</p>
+              <div style={{
+                textAlign: 'center',
+                padding: '3rem',
+                background: 'var(--ifm-background-surface-color)',
+                borderRadius: '16px',
+                border: '1px solid var(--ifm-color-emphasis-200)'
+              }}>
+                <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🎉</div>
+                <p style={{ fontSize: '1.1rem', margin: 0 }}>暂无 Issue，来创建第一个吧！</p>
+              </div>
             ) : (
               issues.map(issue => (
                 <div key={issue.id} style={{
-                  border: '1px solid #e1e4e8',
-                  borderRadius: '6px',
-                  padding: '1rem',
+                  border: '1px solid var(--ifm-color-emphasis-200)',
+                  borderRadius: '12px',
+                  padding: '1rem 1.25rem',
                   marginBottom: '1rem',
-                  background: 'var(--ifm-background-surface-color)'
+                  background: 'var(--ifm-background-surface-color)',
+                  transition: 'all 0.2s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(102, 8, 116, 0.15)';
+                  e.currentTarget.style.borderColor = 'var(--ifm-color-primary)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = 'var(--ifm-color-emphasis-200)';
                 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
                     <span style={{
-                      padding: '0.25rem 0.5rem',
-                      backgroundColor: '#e1e4e8',
+                      padding: '0.2rem 0.6rem',
+                      background: colorMode === 'dark' ? '#2d2d3a' : '#e9ecef',
                       borderRadius: '20px',
-                      fontSize: '0.75rem'
-                    }}>#{issue.number}</span>
-                    <a href={issue.html_url} target="_blank" rel="noopener noreferrer" style={{ fontWeight: 'bold', fontSize: '1.1rem' }}>
+                      fontSize: '0.7rem',
+                      fontWeight: '500',
+                      color: 'var(--ifm-color-emphasis-700)'
+                    }}>
+                      #{issue.number}
+                    </span>
+                    <a href={issue.html_url} target="_blank" rel="noopener noreferrer" style={{
+                      fontWeight: '600',
+                      fontSize: '1rem',
+                      color: 'var(--ifm-color-primary)',
+                      textDecoration: 'none',
+                      flex: 1
+                    }}>
                       {issue.title}
                     </a>
                     <span style={{
-                      padding: '0.25rem 0.5rem',
-                      backgroundColor: issue.state === 'open' ? '#2cbe4e' : '#cb2431',
-                      color: 'white',
+                      padding: '0.2rem 0.6rem',
+                      backgroundColor: issue.state === 'open' ? '#2cbe4e20' : '#cb243120',
+                      color: issue.state === 'open' ? '#2cbe4e' : '#cb2431',
                       borderRadius: '20px',
-                      fontSize: '0.7rem'
+                      fontSize: '0.7rem',
+                      fontWeight: '500'
                     }}>
-                      {issue.state}
+                      {issue.state === 'open' ? '开放中' : '已关闭'}
                     </span>
                   </div>
-                  <div style={{ fontSize: '0.85rem', color: '#6a737d' }}>
-                    由 {issue.user.login} 创建于 {new Date(issue.created_at).toLocaleDateString()}
+                  <div style={{
+                    fontSize: '0.75rem',
+                    color: 'var(--ifm-color-emphasis-500)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem'
+                  }}>
+                    <span>👤 {issue.user.login}</span>
+                    <span>📅 {new Date(issue.created_at).toLocaleDateString('zh-CN')}</span>
+                    {issue.comments > 0 && (
+                      <span>💬 {issue.comments} 条评论</span>
+                    )}
                   </div>
                 </div>
               ))
