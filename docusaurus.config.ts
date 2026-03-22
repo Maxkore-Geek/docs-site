@@ -16,15 +16,6 @@ const config: Config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
-  i18n: {
-  defaultLocale: 'zh-Hans',
-  locales: ['zh-Hans', 'en'],
-  localeConfigs: {
-    'zh-Hans': { label: '中文' },
-    en: { label: 'English' },
-  },
-},
-
 markdown: {
   hooks: {
     onBrokenMarkdownLinks: 'ignore',
