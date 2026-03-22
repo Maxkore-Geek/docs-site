@@ -240,3 +240,10 @@ div:has(> a[href*="algolia.com"]) {
 .DocSearch-HitsFooter {
   display: none !important;
 }
+/* 隐藏 Giscus 水印 */
+.giscus-frame + div,
+[class*="giscus"] [class*="powered"],
+.giscus .giscus-frame + div,
+iframe[src*="giscus"] + div {
+  display: none !important;
+}
