@@ -64,6 +64,31 @@ markdown: {
   contextualSearch: true,
   searchParameters: {},
   searchPagePath: 'search',
+  // ✅ 添加中文占位文字
+  placeholder: '搜索',
+  translations: {
+    button: {
+      buttonText: '搜索',
+      buttonAriaLabel: '搜索',
+    },
+    modal: {
+      searchBox: {
+        resetButtonTitle: '清除查询',
+        resetButtonAriaLabel: '清除查询',
+        cancelButtonText: '取消',
+        cancelButtonAriaLabel: '取消',
+      },
+      footer: {
+        selectText: '选择',
+        selectKeyAriaLabel: 'Enter 键',
+        navigateText: '导航',
+        navigateUpKeyAriaLabel: '向上键',
+        navigateDownKeyAriaLabel: '向下键',
+        closeText: '关闭',
+        closeKeyAriaLabel: 'Esc 键',
+      },
+    },
+  },
 },
     
     navbar: {
