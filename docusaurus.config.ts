@@ -57,38 +57,27 @@ markdown: {
       respectPrefersColorScheme: false, // 不跟随系统，只有手动切换
     },
     
-    algolia: {
+algolia: {
   appId: 'EGEY2PE1PM',
   apiKey: 'bc69655a501bc6f2b825af8ad8daed45',
   indexName: 'nexus.bbroot.com',
   contextualSearch: true,
   searchParameters: {},
   searchPagePath: 'search',
-  // ✅ 添加中文占位文字
-  placeholder: '搜索',
   translations: {
-    button: {
-      buttonText: '搜索',
-      buttonAriaLabel: '搜索',
-    },
     modal: {
-      searchBox: {
-        resetButtonTitle: '清除查询',
-        resetButtonAriaLabel: '清除查询',
-        cancelButtonText: '取消',
-        cancelButtonAriaLabel: '取消',
-      },
       footer: {
         selectText: '选择',
-        selectKeyAriaLabel: 'Enter 键',
         navigateText: '导航',
-        navigateUpKeyAriaLabel: '向上键',
-        navigateDownKeyAriaLabel: '向下键',
         closeText: '关闭',
-        closeKeyAriaLabel: 'Esc 键',
+        searchByText: '搜索提供'
       },
-    },
-  },
+      noResults: {
+        noResultsText: '没有找到结果',
+        suggestedQueryText: '尝试搜索'
+      }
+    }
+  }
 },
     
     navbar: {
@@ -100,8 +89,8 @@ markdown: {
       items: [
         { to: '/docs', label: '文档', position: 'left' },
         { to: '/blog', label: '博客', position: 'left' },
-	{ to: '/chat', label: '聊天室', position: 'left' },
-  	{ to: '/issues', label: '讨论区', position: 'left' },
+		{ to: '/chat', label: '聊天室', position: 'left' },
+  		{ to: '/issues', label: '讨论区', position: 'left' },
       ],
     },
     
