@@ -5,8 +5,8 @@ export default function SearchBarWrapper(props) {
   useEffect(() => {
     const interval = setInterval(() => {
       const input = document.querySelector('.DocSearch-Input');
-      if (input) {
-        input.placeholder = 'Search';
+      if (input && input.placeholder === 'Search') {
+        input.placeholder = '搜索';
         clearInterval(interval);
       }
     }, 100);
