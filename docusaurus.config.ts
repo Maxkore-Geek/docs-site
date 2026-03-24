@@ -37,11 +37,12 @@ markdown: {
           showLastUpdateAuthor: true,
         },
         blog: {
-          showReadingTime: true,
-          path: 'blog',
-          routeBasePath: 'blog',
-          editUrl: 'https://github.com/Maxkore-Geek/docs-site/edit/main/',
-        },
+  		  showReadingTime: true,
+ 		  path: 'blog',
+  		  routeBasePath: 'blog',
+ 		  editUrl: 'https://github.com/Maxkore-Geek/docs-site/edit/main/',
+ 		  editLocalizedFiles: false,
+		},
         theme: {
           customCss: './src/css/custom.css',
         },
