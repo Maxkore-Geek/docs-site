@@ -62,6 +62,7 @@ algolia: {
   apiKey: 'bc69655a501bc6f2b825af8ad8daed45',
   indexName: 'nexus.bbroot.com',
   contextualSearch: true,
+  placeholder: '搜索',
   searchParameters: {},
   searchPagePath: 'search',
   translations: {
