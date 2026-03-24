@@ -222,44 +222,54 @@ div:has(> a[href*="algolia.com"]) {
 .DocSearch-SearchBar {
   border-bottom: none !important;
 }
-/* 隐藏 Giscus 水印 */
-.giscus-frame {
+/* ===== 彻底隐藏 Giscus 所有水印 ===== */
+
+/* 方法1：隐藏整个 Giscus 容器内的 footer 或 powered-by 元素 */
+.giscus,
+.giscus-frame,
+.giscus-widget,
+.giscus-repo,
+[data-giscus],
+.giscus iframe,
+iframe[src*="giscus"] {
   border: none !important;
 }
 
-.giscus .giscus-frame {
-  height: auto !important;
-}
-
-/* 隐藏“由 giscus 提供支持”文字 */
-.giscus-frame + div,
-[class*="giscus"] [class*="powered-by"] {
-  display: none !important;
-}
-/* 隐藏原英文 "See all xx results" */
-.DocSearch-HitsFooter {
-  display: none !important;
-}
-/* 隐藏 Giscus 水印 */
-.giscus-frame + div,
+/* 隐藏 "Powered by giscus" 文字所在容器 */
+.giscus .giscus-footer,
+.giscus .giscus-footer-container,
+.giscus-footer,
+.giscus__footer,
+.giscus__powered-by,
+.giscus .powered-by,
 [class*="giscus"] [class*="powered"],
-.giscus .giscus-frame + div,
-iframe[src*="giscus"] + div {
-  display: none !important;
-}
-/* ===== 隐藏所有水印 ===== */
-.DocSearch-Footer,
-.DocSearch-Logo,
-[class*="PoweredBy"],
+[class*="giscus"] [class*="footer"],
 .giscus-frame + div,
-[class*="giscus"] [class*="powered"],
-.giscus .giscus-frame + div,
 iframe[src*="giscus"] + div,
-.ais-PoweredBy,
-.algolia-branding {
+.giscus iframe + div {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* 隐藏任何包含 giscus 链接的 div */
+div:has(> a[href*="giscus.app"]) {
   display: none !important;
 }
 
+/* 隐藏 Giscus 评论区底部区域 */
+.giscus-widget .giscus-footer {
+  display: none !important;
+}
+
+/* 终极隐藏：隐藏 Giscus 评论区最后一个子元素（通常是水印） */
+.giscus > :last-child,
+.giscus-widget > :last-child,
+[data-giscus] > :last-child {
+  display: none !important;
+}
 /* ===== 搜索结果底部中文 ===== */
 .DocSearch-HitsFooter a {
   display: none !important;
