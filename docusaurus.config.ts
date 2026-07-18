@@ -55,6 +55,16 @@ markdown: {
       respectPrefersColorScheme: false, // 不跟随系统，只有手动切换
     },
     
+webpack: {
+    configure: (webpackConfig) => {
+      // 移除有问题的 ProgressPlugin
+      webpackConfig.plugins = webpackConfig.plugins.filter(
+        (plugin) => plugin.constructor.name !== 'ProgressPlugin'
+      );
+      return webpackConfig;
+    },
+  },
+
 algolia: {
   appId: 'EGEY2PE1PM',
   apiKey: 'bc69655a501bc6f2b825af8ad8daed45',
