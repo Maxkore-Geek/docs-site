@@ -1,11 +1,7 @@
-// 彻底禁用 webpack ProgressPlugin
-process.env.WEBPACK_PROGRESS = 'false';
-process.env.DISABLE_WEBPACK_PROGRESS = 'true';
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-// 禁用 ProgressPlugin 的 webpackbar 配置
-process.env.WEBPACK_PROGRESS = 'false';
+
 const config: Config = {
   title: 'Maxkore的极客空间',
   tagline: '代码之外,思考之上.',
@@ -20,13 +16,9 @@ const config: Config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
-markdown: {
-  hooks: {
-    onBrokenMarkdownLinks: 'ignore',
-    onBrokenMarkdownImages: 'ignore',
-  },
-},
-  
+  // 移除 i18n 配置，暂时只保留中文
+  // i18n: { ... },
+
   presets: [
     [
       'classic',
@@ -36,14 +28,14 @@ markdown: {
           path: 'docs',
           routeBasePath: 'docs',
           breadcrumbs: true,
+          // 移除 editUrl 和 showLastUpdate
         },
         blog: {
-  		  showReadingTime: true,
- 		  path: 'blog',
-  		  routeBasePath: 'blog',
- 		  editUrl: 'https://github.com/Maxkore-Geek/docs-site/edit/main/',
- 		  editLocalizedFiles: false,
-		},
+          showReadingTime: true,
+          path: 'blog',
+          routeBasePath: 'blog',
+          // 移除 editUrl
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -52,52 +44,21 @@ markdown: {
   ],
 
   themeConfig: {
-    // ✅ 完整的深浅色切换配置（只有两种模式）
     colorMode: {
-      defaultMode: 'light',      // 默认浅色
-      disableSwitch: false,      // 允许切换
-      respectPrefersColorScheme: false, // 不跟随系统，只有手动切换
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
     },
     
-webpack: {
-  configure: (webpackConfig) => {
-    // 彻底移除所有 ProgressPlugin
-    webpackConfig.plugins = webpackConfig.plugins.filter(
-      (plugin) => {
-        const name = plugin.constructor.name;
-        return name !== 'ProgressPlugin' && name !== 'Webpackbar';
-      }
-    );
-    // 添加一个空的 ProgressPlugin 来覆盖默认行为
-    const webpack = require('webpack');
-    webpackConfig.plugins.push(new webpack.ProgressPlugin(() => {}));
-    return webpackConfig;
-  },
-},
-
-algolia: {
-  appId: 'EGEY2PE1PM',
-  apiKey: 'bc69655a501bc6f2b825af8ad8daed45',
-  indexName: 'nexus.bbroot.com',
-  contextualSearch: true,
-  placeholder: '搜索',
-  searchParameters: {},
-  searchPagePath: 'search',
-  translations: {
-    modal: {
-      footer: {
-        selectText: '选择',
-        navigateText: '导航',
-        closeText: '关闭',
-        searchByText: '搜索提供'
-      },
-      noResults: {
-        noResultsText: '没有找到结果',
-        suggestedQueryText: '尝试搜索'
-      }
-    }
-  }
-},
+    // Algolia 搜索
+    algolia: {
+      appId: 'EGEY2PE1PM',
+      apiKey: 'bc69655a501bc6f2b825af8ad8daed45',
+      indexName: 'nexus.bbroot.com',
+      contextualSearch: true,
+      searchParameters: {},
+      searchPagePath: 'search',
+    },
     
     navbar: {
       title: 'Maxkore的极客空间',
@@ -116,6 +77,8 @@ algolia: {
       darkTheme: prismThemes.dracula,
     },
   },
+
+  // 不使用任何自定义 webpack 配置
 };
 
 export default config;
