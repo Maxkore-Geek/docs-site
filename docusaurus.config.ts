@@ -1,3 +1,6 @@
+// 彻底禁用 webpack ProgressPlugin
+process.env.WEBPACK_PROGRESS = 'false';
+process.env.DISABLE_WEBPACK_PROGRESS = 'true';
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
@@ -57,14 +60,20 @@ markdown: {
     },
     
 webpack: {
-    configure: (webpackConfig) => {
-      // 移除有问题的 ProgressPlugin
-      webpackConfig.plugins = webpackConfig.plugins.filter(
-        (plugin) => plugin.constructor.name !== 'ProgressPlugin'
-      );
-      return webpackConfig;
-    },
+  configure: (webpackConfig) => {
+    // 彻底移除所有 ProgressPlugin
+    webpackConfig.plugins = webpackConfig.plugins.filter(
+      (plugin) => {
+        const name = plugin.constructor.name;
+        return name !== 'ProgressPlugin' && name !== 'Webpackbar';
+      }
+    );
+    // 添加一个空的 ProgressPlugin 来覆盖默认行为
+    const webpack = require('webpack');
+    webpackConfig.plugins.push(new webpack.ProgressPlugin(() => {}));
+    return webpackConfig;
   },
+},
 
 algolia: {
   appId: 'EGEY2PE1PM',
