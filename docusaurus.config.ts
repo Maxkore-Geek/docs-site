@@ -1,7 +1,8 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-
+// 禁用 ProgressPlugin 的 webpackbar 配置
+process.env.WEBPACK_PROGRESS = 'false';
 const config: Config = {
   title: 'Maxkore的极客空间',
   tagline: '代码之外,思考之上.',
